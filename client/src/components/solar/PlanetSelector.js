@@ -9,7 +9,7 @@ function PlanetSelector( {planets, getSelectedPlanet} ) {
 
   const planetList = planets.map( ( planet, index ) => {
     return(
-      <li>
+      <li key={planet.id}>
         <button onClick={handlePlanetClick} value={index} key={planet.id}>{planet.englishName}</button>
       </li>
     );
