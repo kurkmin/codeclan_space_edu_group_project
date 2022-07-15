@@ -15,7 +15,6 @@ const MainContainer = () => {
         { name: 'neptune' }
     ])
 
-    // const [test, setTest] = useState([]);
 
     const [planetObjects, setPlanetObjects] = useState([]);
 
@@ -27,23 +26,6 @@ const MainContainer = () => {
         const newPlanets = await Promise.all(promises);
         setPlanetObjects(newPlanets);
     }
-
-    // const getPlanets = () => {
-    //     return fetch(frenchAPI)
-    //         .then(res => res.json())
-    //         .then((data) => setTest(data))
-    // }
-    // const getFrenchPlanets = function () {
-    //     const copyPlanets = [planetObjects]
-    //     const frenchPlanets = planets.map((planet) => {
-    //         const res = await fetch(frenchAPI + planet.name);
-    //         const data = await res.json();
-    //         copyPlanets.push(data);
-    //         setPlanetObjects(copyPlanets);
-    //         console.log(planetObjects);
-    //     })
-
-    // }
 
     useEffect(() => {
         getFrenchPlanets()

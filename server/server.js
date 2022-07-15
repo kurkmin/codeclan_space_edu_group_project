@@ -14,6 +14,9 @@ MongoClient.connect('mongodb://127.0.0.1:27017')
         const planetsCollection = db.collection('planets');
         const planetsRouter = createRouter(planetsCollection);
 
+        const usersCollection = db.collection('users');
+        const usersRouter = createRouter(usersCollection);
+
 
         app.post('/api/planets', (req, res) => {
             const newData = req.body;
@@ -35,6 +38,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017')
         });
 
         app.use('/api/planets', planetsRouter)
+        app.use('/api/users', usersRouter)
     });
 
 
