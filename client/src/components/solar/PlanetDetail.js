@@ -1,8 +1,8 @@
 import React from 'react';
 
-function PlanetDetail() {
+function PlanetDetail({ planet }) {
 
-  return <h2>I'm the planet detail</h2>
+  return <h2>I'm the planet {planet.englishName}</h2>
 
 }
 
