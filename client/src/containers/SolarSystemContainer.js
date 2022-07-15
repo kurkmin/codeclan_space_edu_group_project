@@ -12,7 +12,7 @@ function SolarSystemContainer({ planets }) {
   return (
     <>
       <h1> Container </h1>
-      <PlanetSelector />
+      <PlanetSelector planets={planets} />
       <PlanetDetail />
       <FunFacts />
     </>
