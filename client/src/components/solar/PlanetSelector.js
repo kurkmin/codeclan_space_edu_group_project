@@ -1,8 +1,25 @@
 import React from 'react';
 
-function PlanetSelector({ planets }) {
+function PlanetSelector( {planets, getSelectedPlanet} ) {
 
-  return <h2>I'm the planet selector</h2>
+  const handlePlanetClick = (event) => {
+    const planetIndex = event.target.value;
+    getSelectedPlanet(planetIndex);
+  }
+
+  const planetList = planets.map( ( planet, index ) => {
+    return(
+      <li>
+        <button onClick={handlePlanetClick} value={index} key={planet.id}>{planet.englishName}</button>
+      </li>
+    );
+  });
+
+  return (
+    <ul>
+      {planetList}
+    </ul>
+  );
 
 }
 
