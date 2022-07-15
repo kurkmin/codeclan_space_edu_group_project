@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PlanetSelector() {
+function PlanetSelector({ planets }) {
 
   return <h2>I'm the planet selector</h2>
 
