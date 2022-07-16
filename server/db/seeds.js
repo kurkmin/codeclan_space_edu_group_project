@@ -1,7 +1,6 @@
 use solar_system;
 db.dropDatabase();
 
-
 db.users.insertMany([
     {
         "name": "Wee Jimmy",
