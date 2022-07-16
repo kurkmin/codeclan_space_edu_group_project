@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {BrowserRouter as Router, Routes, Route, Outlet, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Outlet, useLocation } from 'react-router-dom';
 
 import Header from "../components/elements/Header";
 import Homepage from "./Homepage";
@@ -26,7 +26,8 @@ const MainContainer = () => {
 
 
     const getFrenchPlanets = async () => {
-        const promises = planets.map(planet => fetch(frenchAPI + planet.name).then(res => res.json()));
+        const promises = planets.map(planet => fetch(frenchAPI + planet.name)
+            .then(res => res.json()));
         const newPlanets = await Promise.all(promises);
         setPlanetObjects(newPlanets);
     }
@@ -40,15 +41,15 @@ const MainContainer = () => {
             <Router>
                 <Header />
                 <Routes>
-                    <Route 
-                        path="/" 
+                    <Route
+                        path="/"
                         element={<Homepage />}
                     />
-                    <Route 
-                        path="/explore" 
-                        element={<SolarSystemContainer planets={planetObjects} />} 
+                    <Route
+                        path="/explore"
+                        element={<SolarSystemContainer planets={planetObjects} />}
                     />
-                    <Route 
+                    <Route
                         path="/quizzes"
                         element={<QuizContainer planets={planetObjects} />}
                     />
@@ -56,7 +57,7 @@ const MainContainer = () => {
                 {/* footer */}
             </Router>
             <h1>Main Container</h1>
-            
+
         </>
     )
 }

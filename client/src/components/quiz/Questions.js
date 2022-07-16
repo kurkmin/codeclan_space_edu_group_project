@@ -1,9 +1,13 @@
 import React from 'react';
 
-function Questions() {
+function Questions({ quizzes }) {
+
+  const quizzesList = quizzes.map((quiz) => {
+    return quiz.question
+  });
 
   return (
-    <h1>I'm the question box</h1>
+    <div className="quiz-questions">{quizzesList}</div>
   )
 
 }
