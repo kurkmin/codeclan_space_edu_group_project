@@ -24,7 +24,6 @@ const MainContainer = () => {
 
     const frenchAPI = 'https://api.le-systeme-solaire.net/rest/bodies/'
 
-
     const getFrenchPlanets = async () => {
         const promises = planets.map(planet => fetch(frenchAPI + planet.name)
             .then(res => res.json()));
@@ -36,10 +35,24 @@ const MainContainer = () => {
         getFrenchPlanets()
     }, [])
 
+    // users api imported from local database 
+
+    const [users, setUsers] = useState([])
+
+    const getUsers = () => {
+        fetch("http://localhost:9000/api/users")
+            .then(res => res.json())
+            .then(data => setUsers(data))
+    }
+
+    useEffect(() => {
+        getUsers()
+    }, [])
+
     return (
         <>
             <Router>
-                <Header />
+                <Header users={users} />
                 <Routes>
                     <Route
                         path="/"
@@ -61,5 +74,6 @@ const MainContainer = () => {
         </>
     )
 }
+
 
 export default MainContainer;
