@@ -29,11 +29,23 @@ db.users.insertMany([
 ])
 db.quizzes.insertMany([
     {
-        "question": 'what is the diameter of the saturn?',
-        "answer": '1km'
+        "question": 'What is the gravity of Earth?',
+        "answer": 9.8
     },
     {
-        "question": "how many planets in our solar system?",
-        "answer": 1
+        "question": "What is French name of Earth?",
+        "answer": "La Terre",
+    },
+    {
+        "question": "Does the Earth have any moons?",
+        "answer": true,
+    },
+    {
+        "question": "what is the radius of the earth",
+        "answer": 6371.0084
+    },
+    {
+        "question": "What is the density of Earth?",
+        "answer": 5.51360
     }
 ])
