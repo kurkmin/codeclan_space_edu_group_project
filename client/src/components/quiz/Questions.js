@@ -32,13 +32,9 @@ function Questions({ quizzes, handleSubmit, answerBoolean }) {
           {/* <select name="inputAnswer" id={quiz._id} onChange={onChange} type="text" value={selectedAnswer} >
             <option value="wrong">La Merde</option>
             <option value={quiz.answer}>{quiz.answer}</option> 
-
           </select>*/}
+
           <input type="submit" value="Check" />
-          {/* {answerBoolean == true? <p>Correct!</p> : null}
-          {answerBoolean == false? <p>Incorrect!</p> : null} */}
-
-
         </form>
       </li>
     )
