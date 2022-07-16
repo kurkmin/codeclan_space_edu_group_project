@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Questions({ quizzes, handleSubmit }) {
+function Questions({ quizzes, handleSubmit, answerBoolean }) {
 
   const [selectedAnswer, setSelectedAnswer] = useState()
   const [formData, setFormData] = useState({});
@@ -35,6 +35,8 @@ function Questions({ quizzes, handleSubmit }) {
 
           </select>*/}
           <input type="submit" value="Check" />
+          {/* {answerBoolean == true? <p>Correct!</p> : null}
+          {answerBoolean == false? <p>Incorrect!</p> : null} */}
 
 
         </form>
