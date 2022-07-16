@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import SolarSystemContainer from "./SolarSystemContainer";
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Homepage from "./Homepage";
+import SolarSystemContainer from "./SolarSystemContainer";
+import QuizContainer from "./QuizContainer";
 
 const MainContainer = () => {
 
@@ -34,8 +37,26 @@ const MainContainer = () => {
 
     return (
         <>
+            <Router>
+                <Header />
+                <Routes>
+                    <Route 
+                        path="/" 
+                        element={<Homepage />}
+                    />
+                    <Route 
+                        path="/explore" 
+                        element={<SolarSystemContainer planets={planetObjects} />} 
+                    />
+                    <Route 
+                        path="/quizzes"
+                        element={<QuizContainer planets={planetObjects} />}
+                    />
+                </Routes>
+                {/* footer */}
+            </Router>
             <h1>Main Container</h1>
-            <SolarSystemContainer planets={planetObjects} />
+            
         </>
     )
 }
