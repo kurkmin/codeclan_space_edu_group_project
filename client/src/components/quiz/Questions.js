@@ -1,13 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Questions({ quizzes }) {
+function Questions({ quizzes, handleSubmit }) {
+
+  const [selectedAnswer, setSelectedAnswer] = useState()
+  const [formData, setFormData] = useState({});
+
+  const onChange = (e) => {
+    const newFormData = Object.assign({}, formData);
+    newFormData[e.target.name] = e.target.value;
+    newFormData["questionId"] = e.target.id;
+    setFormData(newFormData);
+    // console.log(formData);
+  }
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData);
+    handleSubmit(formData);
+  }
+
 
   const quizzesList = quizzes.map((quiz) => {
-    return quiz.question
+    return (
+
+
+      <li key={quiz._id}>{quiz.question}
+        <form onSubmit={onSubmit}>
+          <input type="hidden" name="questionId" value={quiz._id} />
+          <input name="inputAnswer" id={quiz._id} onChange={onChange} type="text" value={selectedAnswer} />
+          <input type="submit" value="Check" />
+        </form>
+      </li>
+    )
   });
 
   return (
-    <div className="quiz-questions">{quizzesList}</div>
+    <div className="quiz-questions">
+      <ul>
+        {quizzesList}
+      </ul>
+    </div>
   )
 
 }

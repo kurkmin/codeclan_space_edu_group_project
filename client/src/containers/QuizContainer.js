@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import Answers from '../components/quiz/Answers';
+import Feedback from '../components/quiz/Feedback';
 import Questions from '../components/quiz/Questions';
 
 function QuizContainer({ planets }) {
 
   const [quizzes, setQuizzes] = useState([]);
 
+  const handleSubmit = (submittedAnswer) => {
+    console.log("FROM CONTAINER " + submittedAnswer.inputAnswer + " ID:" + submittedAnswer.questionId);
+    const question_check = quizzes.find(quizzes => submittedAnswer.questionId == quizzes._id)
+    if (question_check.answer == submittedAnswer.inputAnswer) {
+      console.log("Answer is correct")
+    }
+    else {
+      console.log("Answer is incorrect")
+    }
+    // console.log(question_check);
+
+  }
 
   function getQuizzes() {
     fetch('http://localhost:9000/api/quizzes')
@@ -20,8 +32,8 @@ function QuizContainer({ planets }) {
   return (
     <>
       <h1>I'm the quiz container</h1>
-      <Questions quizzes={quizzes} />
-      <Answers />
+      <Questions handleSubmit={handleSubmit} quizzes={quizzes} />
+      <Feedback quizzes={quizzes} />
     </>
   )
 
