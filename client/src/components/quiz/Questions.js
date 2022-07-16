@@ -28,7 +28,15 @@ function Questions({ quizzes, handleSubmit }) {
         <form onSubmit={onSubmit}>
           <input type="hidden" name="questionId" value={quiz._id} />
           <input name="inputAnswer" id={quiz._id} onChange={onChange} type="text" value={selectedAnswer} />
+
+          {/* <select name="inputAnswer" id={quiz._id} onChange={onChange} type="text" value={selectedAnswer} >
+            <option value="wrong">La Merde</option>
+            <option value={quiz.answer}>{quiz.answer}</option> 
+
+          </select>*/}
           <input type="submit" value="Check" />
+
+
         </form>
       </li>
     )
