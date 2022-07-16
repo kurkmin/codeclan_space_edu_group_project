@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Outlet, useLocation } from 'react-router-dom';
 
+import Header from "../components/elements/Header";
 import Homepage from "./Homepage";
 import SolarSystemContainer from "./SolarSystemContainer";
 import QuizContainer from "./QuizContainer";
@@ -33,7 +34,6 @@ const MainContainer = () => {
     useEffect(() => {
         getFrenchPlanets()
     }, [])
-
 
     return (
         <>
