@@ -1,10 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
-
-
-
-
-
 
 function Homepage() {
 
@@ -20,10 +14,10 @@ function Homepage() {
         
 
         <div class="transit-heading">
-          <h1>SpaceClan<span></span>Discover</h1>
-          <h2>Hello, Universe !</h2>
+          <h1>SpaceClan Discover</h1>
+          <h2>Hello, Earthling !</h2>
           <p class="button">
-            <a href="/explore"><button class="button__button button-slide">Make it So Number One &gt;</button></a>
+            <a href="/explore"><button class="button__button button-slide">Make it So, Number One &gt;</button></a>
           </p>
         </div>
 

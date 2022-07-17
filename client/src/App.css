@@ -7,6 +7,7 @@ CodeClan JS Project Wk9
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Orbitron:wght@400;700;900&display=swap');
 
 :root{
+  --text-30: hsl(197, 100%, 96%);
   --viewport-background: hsl(310, 86%, 3%);
   --ss-container-width: 74rem;
   --box-shadow-50: -2px 1px 4px 2px rgba(0,0,0,0.6), 
@@ -141,7 +142,7 @@ h3 {
   left: 0;
 
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   /* transform: translateX(50%) translateY(-70%); */
   color: rgb(255, 255, 255);
   display: flex;
@@ -167,7 +168,7 @@ h3 {
   animation-name: headingOne;
   animation-duration: 3s;
   animation-iteration-count: 1;
-  animation-delay: 14s;
+  animation-delay: 11s;
   animation-fill-mode: forwards;
   opacity: 0;
 
