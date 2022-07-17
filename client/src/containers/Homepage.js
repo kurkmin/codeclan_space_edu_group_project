@@ -13,21 +13,25 @@ function Homepage() {
 
       <div class="solar-system-splash">
           
-          <div class="solar-system">
-            <div class="transit">     
-            </div>
+        <div class="solar-system">
+          <div class="transit">     
           </div>
         </div>
+        
 
         <div class="transit-heading">
           <h1>SpaceClan<span></span>Discover</h1>
           <h2>Hello, Universe !</h2>
-          <p><a href="/explore"><button>Explore ...</button></a></p>
+          <p class="button">
+            <a href="/explore"><button class="button__button button-slide">Make it So Number One &gt;</button></a>
+          </p>
         </div>
 
         <div class="astro">
-          <img class="astro-img" width="200" src="/images/spaceman.png" alt="Wizzing Astronaut" />
+          <img class="planet-animation border-radius-50" width="200" src="/images/earth_large.png" alt="The Earth from space, gently orbiting the sun." />
         </div>
+
+      </div>
 
     </>
   )

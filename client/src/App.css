@@ -1,27 +1,18 @@
-:root{
-  --viewport-background: hsl(310, 86%, 3%);
-  --ss-container-width: 74rem;
-}
-
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding:0;
-}
 
 /* 
 CodeClan JS Project Wk9
--Solar System Explorer
--Solar System animation
-
 */
 
-/* Find font from Google, seek inspiration... nasa, Museums etc */
+/* FONT import font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Orbitron:wght@400;700;900&display=swap');
 
 :root{
   --viewport-background: hsl(310, 86%, 3%);
   --ss-container-width: 74rem;
+  --box-shadow-50: -2px 1px 4px 2px rgba(0,0,0,0.6), 
+  -2px 4px 12px 6px rgba(0,0,0,0.1);
+
+  --transition: all 0.2s ease-in-out;
 }
 
 *,
@@ -44,12 +35,19 @@ html {
   }
 
 body {
-  position: relative;
+  /* position: relative; */
   min-height: 98vh;
   width: 100%;
+  font-family: 'Exo 2', sans-serif;
   display: grid;
   place-items: center;
   /* Grid Might cause problems with positiin absolute?? */
+}
+
+h1, 
+h2,
+h3 {
+  font-family: Orbitron;
 }
 
 .solar-system-splash {
@@ -61,25 +59,18 @@ body {
 
 }
 
-.solar-system {
-  width: 100%;
-  min-height: 100%;
-  position: relative;
-  /* background-color: #100008; */
-  /* border: 1px solid white; */
-  /* transform: perspective(122rem); */
-  /* perspective will need position relative on parent && position absolute on child!! */
-}
+
 
 .sun,
 .transit,
 .orbit,
 .orbit + div,
 .orbit + div > div {
-  position: absolute;
+  /* position: absolute; */
+  
 }
 
-.sun {
+/* .sun {
 
   --sun-diameter: calc( var(--ss-container-width) / 4 );
   --sun-diameter-third: calc( var(--sun-diameter) / 3 );
@@ -101,73 +92,92 @@ body {
               -10rem var(--sun-diameter-third) var(--sun-diameter-doubled)  var(--sun-diameter-third) rgba(80, 6, 239, 0.142),
               var(--sun-diameter-third) -10rem var(--sun-diameter-doubled)  var(--sun-diameter-third) rgba(254, 231, 105, 0.2)
               ;
+} */
+
+.solar-system {
+  width: auto;
+  min-height: 100%;
+  position: relative;
+  /* background-color: #100008; */
+  /* border: 1px solid white; */
+  /* transform: perspective(122rem); */
+  /* perspective will need position relative on parent && position absolute on child!! */
 }
 
 
 .transit {
-
+  
   --sun-diameter: calc( var(--ss-container-width) / 6 );
   --sun-diameter-third: calc( var(--sun-diameter) / 3 );
   --sun-diameter-doubled: calc( var(--sun-diameter) * 1.6 );
-
+  
+  position: absolute;
   height:  var(--sun-diameter);
   width:  var(--sun-diameter);
-  background-color: #ffd500;
-  transform: translateX(50%) translateY(-50%);
   top: 50%;
   right: 50%;
+  transform: translateX(50%) translateY(-50%);
   border-radius: 50%;
   box-shadow: inset 2rem 0 2rem 0rem rgba(157, 255, 230, 0.828),
-              inset -2rem 2rem 3rem 2rem rgba(255, 85, 0, 0.2),
-              inset 0 0 var(--sun-diameter-third) var(--sun-diameter) rgba(2, 2, 2, 0.825),
-              -3rem -2rem 1rem 3rem hsla(40, 100%, 50%, 0.922),
-              0 0 1rem 0.3rem rgba(255, 219, 182, 0.921),
-              0 0 3rem 0.2rem rgb(250, 218, 8),
-              -12rem var(--sun-diameter-third) var(--sun-diameter-doubled)  var(--sun-diameter-third) rgba(129, 190, 250, 0.842),
-              var(--sun-diameter-doubled) var(--sun-diameter-third) var(--sun-diameter-doubled)  var(--sun-diameter) rgba(239, 255, 136, 0.348),
-              -30rem -6rem var(--sun-diameter-doubled)  var(--sun-diameter) rgba(57, 0, 0, 0.614),
-              var(--sun-diameter-third) -12rem var(--sun-diameter-doubled)  var(--sun-diameter-third) rgba(86, 1, 109, 0.604)
-              ;
+  inset -2rem 2rem 3rem 2rem rgba(255, 85, 0, 0.2),
+  inset 0 0 var(--sun-diameter-third) var(--sun-diameter) rgba(2, 2, 2, 0.825),
+  -3rem -2rem 1rem 3rem hsla(40, 100%, 50%, 0.922),
+  0 0 1rem 0.3rem rgba(255, 219, 182, 0.921),
+  0 0 3rem 0.2rem rgb(250, 218, 8),
+  -12rem var(--sun-diameter-third) var(--sun-diameter-doubled)  var(--sun-diameter-third) rgba(129, 190, 250, 0.842),
+  var(--sun-diameter-doubled) var(--sun-diameter-third) var(--sun-diameter-doubled)  var(--sun-diameter) rgba(239, 255, 136, 0.348),
+  -30rem -6rem var(--sun-diameter-doubled)  var(--sun-diameter) rgba(57, 0, 0, 0.614),
+  var(--sun-diameter-third) -12rem var(--sun-diameter-doubled)  var(--sun-diameter-third) rgba(86, 1, 109, 0.604)
+  ;
+  
 }
 
 .transit-heading {
   /* --sun-diameter-third: calc( var(--sun-diameter) / 3 ); */
   
   position: absolute;
-  top: 50%;
-  left: 25%;
-  transform: translateX(-6rem) translateY(-40%);
-  width: max-content;
+  top: 0;
+  bottom:0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+  /* transform: translateX(50%) translateY(-70%); */
   color: rgb(255, 255, 255);
-  opacity: 0.8
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.113);
 }
 
 .transit-heading > h1 {
-  font-family: Anurati;
-  font-size: 10rem;
+  font-size: 8rem;
   
   /* --offset: calc( var(--sun-diameter) * 4  ); */
   /* transform: translateX(var(--offset)); */
   /* transform: translateX(-6rem) translateY(2rem) rotateX(30deg); */
-  color: rgb(130, 0, 30);
+  color: rgb(196, 213, 238);
   /* color: var(--viewport-background); */
   text-shadow: 
               2px 2px 1px hsla(0, 0%, 0%, 0.682), 
               0 0 0 rgba(0, 0, 0, 0.532), 
               2px 2px 3px hsl(0, 0%, 100%);
   opacity: 0;
-  animation-name: logo;
+  animation-name: headingOne;
   animation-duration: 3s;
   animation-iteration-count: 1;
-  animation-delay: 1s;
+  animation-delay: 14s;
   animation-fill-mode: forwards;
   opacity: 0;
+
 }
 
-@keyframes logo {
+@keyframes headingOne {
   0% {
     opacity: 0;
     transform: scale(0) rotateX(359deg);
+    color: rgb(138, 0, 32);
   }
   
   80% {
@@ -177,24 +187,25 @@ body {
   
   90%  {
     opacity: 1;
+    color: rgb(255, 255, 255);
   }
   
   100% {
     opacity: 1;
-    transform: scale(1) rotateX(0deg) translateX(-6rem) translateY(3rem);
-    color: rgb(204, 0, 48);
+    transform: scale(1) rotateX(0deg) translateX(14rem) translateY(3rem);
+    color: rgb(196, 213, 238);
   }
 }
 
 .transit-heading h2 {
-  margin-top: 6rem;
+  margin-top: 0rem;
   font-size: 5rem;
   text-align: center;
   letter-spacing: 0.3rem;
   animation-name: hello;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-iteration-count: 1;
-  animation-delay: 4s;
+  animation-delay: 14s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
@@ -216,7 +227,7 @@ body {
   animation-name: button;
   animation-duration: 3s;
   animation-iteration-count: 1;
-  animation-delay: 4s;
+  animation-delay: 18s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
@@ -254,44 +265,96 @@ body {
 }
 
 .astro {
-  /* position: absolute;
+  position: absolute;
   top: 0;
-  left: 0; */
-  /* transform-origin: 20% 40%; */
-  transform: translateY(-50vh);
+  left: 0; 
+  transform-origin: 50% 50%;
+  transform: scale(4) translateX(20rem);
   animation-name: astro;
-  animation-duration: 8s;
+  animation-duration: 13s;
   animation-iteration-count: 1;
-  animation-delay: 1s;
-  animation-fill-mode: backwards;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
   animation-timing-function: linear;
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .astro-img {
-  max-width: 200px;
-  height: 200px;
+  max-width: 400px;
+  height: 400px;
 }
 
 @keyframes astro  {
   0% {
-    transform: scale(1) rotateY(0);
+    transform: scale(4) translateX(20rem);
     
-  }
-  
-  
-  50% {
-    transform: scale(0.6);
-    
-  }
+  } 
 
   100% {
-    transform: scale(1) rotateY(359);
+    transform: scale(0) translateX(40rem);
     
   }
 }
 
+/* IMAGES */
 
-img.earth{
+.planet-animation {
+  animation: spin-right 36.5s linear infinite;
+}
+
+@keyframes spin-right {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* HELPERS */
+
+.border-radius-50{
   border-radius: 50%;
+}
+
+.button__button {
+  /* height: 2rem; */
+  width: max-content;
+  border: 0;
+  padding: 0 1.4rem;
+  line-height: 2;
+  border: 1px solid transparent;
+  border-radius: 0.6rem;
+  box-shadow: var(--box-shadow-20);
+  transition: var(--transition);
+  color: #fff;
+  font-size: 1.4rem;
+  text-shadow: var(--text-shadow);
+}
+
+.button__button:hover{
+  box-shadow: var(--box-shadow-50);
+  color: #fff;
+  border: 1px solid #000;
+  transform: translateY(1px) scale(1.02);
+  filter: hue-rotate(-30deg) brightness(1.2) contrast(1.2);
+}
+
+.button-slide::after {
+  transition: var(--transition);
+  content: 'OK, Deleting Universe';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #f40;
+  border-radius: inherit;
+  /* transform: translateX(-100%); */
+  transform: rotateX(90deg);
+  line-height: inherit;
+}
+
+
+
+.button-slide:hover::after{
+  /* transform: translateX(0); */
+  transform: rotateX(0deg);
 }
