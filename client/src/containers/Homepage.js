@@ -1,6 +1,8 @@
 import React from 'react';
 
-function Homepage() {
+function Homepage({funcNav}) {
+
+  funcNav(() => false);
 
   return (
     <h1>Homepage!</h1>

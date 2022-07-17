@@ -22,6 +22,8 @@ const MainContainer = () => {
 
     const [planetObjects, setPlanetObjects] = useState([]);
 
+    const [showNav, setShowNav] = useState(true);
+
     const frenchAPI = 'https://api.le-systeme-solaire.net/rest/bodies/'
 
     const getFrenchPlanets = async () => {
@@ -34,6 +36,14 @@ const MainContainer = () => {
     useEffect(() => {
         getFrenchPlanets()
     }, [])
+
+    const funcNav = (bool) => {
+        setShowNav(bool)
+    }
+
+    useEffect(() => {
+
+    }, [showNav])
 
     // users api imported from local database 
 
@@ -52,11 +62,13 @@ const MainContainer = () => {
     return (
         <>
             <Router>
-                <Header users={users} />
+                {
+                    showNav && <Header users={users} />
+                }
                 <Routes>
                     <Route
                         path="/"
-                        element={<Homepage />}
+                        element={<Homepage funcNav={funcNav}/>}
                     />
                     <Route
                         path="/explore"
