@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Outlet, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import Header from "../components/elements/Header";
 import Homepage from "./Homepage";
@@ -22,8 +22,6 @@ const MainContainer = () => {
 
     const [planetObjects, setPlanetObjects] = useState([]);
 
-    const [showNav, setShowNav] = useState(true);
-
     const frenchAPI = 'https://api.le-systeme-solaire.net/rest/bodies/'
 
     const getFrenchPlanets = async () => {
@@ -36,14 +34,6 @@ const MainContainer = () => {
     useEffect(() => {
         getFrenchPlanets()
     }, [])
-
-    const funcNav = (bool) => {
-        setShowNav(bool)
-    }
-
-    useEffect(() => {
-
-    }, [showNav])
 
     // users api imported from local database 
 
@@ -63,12 +53,12 @@ const MainContainer = () => {
         <>
             <Router>
                 {
-                    showNav && <Header users={users} />
+                    window.location.pathname!=='/' ? <Header users={users} /> : null
                 }
                 <Routes>
                     <Route
                         path="/"
-                        element={<Homepage funcNav={funcNav}/>}
+                        element={<Homepage />}
                     />
                     <Route
                         path="/explore"
