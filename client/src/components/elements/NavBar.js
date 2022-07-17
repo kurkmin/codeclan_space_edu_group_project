@@ -7,12 +7,15 @@ const NavList = styled.ul`
   display: flex;
   gap: 2rem;
   
-  & > li {
+  &  li {
+    display: inline-block;
     color: white;
 
   }
 
-  & > a {
+  &  a,
+  &  a:visited {
+    width: 100%;
     color: white;
   }
 

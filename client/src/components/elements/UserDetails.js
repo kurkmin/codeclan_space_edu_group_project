@@ -4,7 +4,7 @@ const UserDetail = ({ user }) => {
 
   return (
     <>
-      <h2>User Details</h2>
+      <h2>{user.name}</h2>
       <p>
       </p>
     </>
