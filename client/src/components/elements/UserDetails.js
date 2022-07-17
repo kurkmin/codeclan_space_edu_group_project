@@ -1,12 +1,13 @@
 import React from 'react';
 
-const UserDetail = ({ user }) => {
 
+const UserDetail = ({ users, currentUser }) => {
+
+  const userObject = users.find( user => user.name === currentUser);
+  console.log("USER OBJECT" + currentUser);
   return (
     <>
-      <h2>{user.name}</h2>
-      <p>
-      </p>
+      <h2>{userObject.name} <small>({userObject.age})</small></h2>
     </>
   )
 }

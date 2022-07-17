@@ -52,7 +52,7 @@ const Header = ({ users }) => {
         <select onChange={handleSelect}>
           {userOptions}
         </select>
-        <UserDetail user={selectedUser} />
+        <UserDetail currentUser={selectedUser} users={users} />
       </UserBox>
     </HeaderBox>
   )
