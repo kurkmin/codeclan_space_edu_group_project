@@ -3,7 +3,15 @@ import React from 'react';
 function Homepage() {
 
   return (
-    <h1>Homepage!</h1>
+    <div className="splash">
+      <div className="button-start">
+        <a href="/explore" title="Start your adventure.">
+          Blast Off!
+        </a>
+      </div>
+    </div>
+
+
   )
 
 }

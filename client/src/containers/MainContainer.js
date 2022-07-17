@@ -27,8 +27,13 @@ const MainContainer = () => {
     const getFrenchPlanets = async () => {
         const promises = planets.map(planet => fetch(frenchAPI + planet.name)
             .then(res => res.json()));
+            // use englishName from french to pull Nasa Images (2)
+            // Add nasa img url to planet Object
+            
         const newPlanets = await Promise.all(promises);
+        // map newPlanets? 
         setPlanetObjects(newPlanets);
+        // maybe in here? map planetObjects after saved by french
     }
 
     useEffect(() => {
@@ -71,8 +76,6 @@ const MainContainer = () => {
                 </Routes>
                 {/* footer */}
             </Router>
-            <h1>Main Container</h1>
-
         </>
     )
 }
