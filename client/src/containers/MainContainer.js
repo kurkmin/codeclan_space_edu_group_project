@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Outlet, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import Header from "../components/elements/Header";
 import Homepage from "./Homepage";
@@ -27,8 +27,13 @@ const MainContainer = () => {
     const getFrenchPlanets = async () => {
         const promises = planets.map(planet => fetch(frenchAPI + planet.name)
             .then(res => res.json()));
+            // use englishName from french to pull Nasa Images (2)
+            // Add nasa img url to planet Object
+            
         const newPlanets = await Promise.all(promises);
+        // map newPlanets? 
         setPlanetObjects(newPlanets);
+        // maybe in here? map planetObjects after saved by french
     }
 
     useEffect(() => {
@@ -52,7 +57,9 @@ const MainContainer = () => {
     return (
         <>
             <Router>
-                <Header users={users} />
+                {
+                    window.location.pathname!=='/' ? <Header users={users} /> : null
+                }
                 <Routes>
                     <Route
                         path="/"
@@ -69,8 +76,6 @@ const MainContainer = () => {
                 </Routes>
                 {/* footer */}
             </Router>
-            <h1>Main Container</h1>
-
         </>
     )
 }
