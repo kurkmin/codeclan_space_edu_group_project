@@ -52,6 +52,11 @@ function PlanetDetail({ planet }) {
   return (
     <div className='planet-detail'>
       <h2>I'm the planet {planet.englishName}</h2>
+      <img src={planet.imageOne.links[0].href} alt={planet.imageOne.data[0].title} />
+      <p>{planet.imageOne.data[0].description}</p>
+      <img src={planet.imageTwo.links[0].href} />
+      <p>{planet.imageTwo.data[0].description}</p>
+
       <ul className='planet-detail__stats'>
         <li><span>Gravity:</span> {planet.gravity}</li>
         <li><span>{planet.englishName} is a </span>{planet.isPlanet ? "Proper Planet" : "Wannabe Rock"}</li>
