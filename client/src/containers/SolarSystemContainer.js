@@ -15,12 +15,12 @@ function SolarSystemContainer({ planets, planet, getSelectedPlanet }) {
   // }
 
   return (
-    <>
-      <h1> Container </h1>
+    <div className='container'>
+      <h1> Explore The Planets </h1>
       <PlanetSelector planets={planets} getSelectedPlanet={getSelectedPlanet}/>
       <PlanetDetail planet={planet} />
       <FunFacts />
-    </>
+    </div>
   )  
 }
 

@@ -24,7 +24,7 @@ function Homepage() {
         </div>
 
         <div className="astro">
-          <img className="planet-animation border-radius-50" width="200" src="/images/earth_large.png" alt="The Earth from space, gently orbiting the sun." />
+          <img className="planet-animation border-radius-50" width="200" src="/images/earth_large_processed.webp" alt="The Earth from space, gently orbiting the sun." />
         </div>
 
       </div>
