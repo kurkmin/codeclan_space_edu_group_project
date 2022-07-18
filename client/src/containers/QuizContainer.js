@@ -7,7 +7,7 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
 
   const [quizzes, setQuizzes] = useState([]);
   const [answerBoolean, setAnswerBoolean] = useState(null);
-  const [constructedQuizes, setConstructedQuizzes] = useState([]);
+  const [constructedQuizzes, setConstructedQuizzes] = useState([]);
 
   const handleSubmit = (submittedAnswer) => {
     const question_check = quizzes.find(quizzes => submittedAnswer.questionId == quizzes._id)
@@ -19,22 +19,7 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
     }
   }
 
-  // function createQuestions(planet) {
-  //   quizzes.map((quiz) => {
-  //     if (planet == null) {
-  //       return ""
-  //     }
-  //     else {
-  // console.log(quiz)
-  // console.log(planet.englishName)
-  // }
 
-
-  //   })
-  // }
-
-
-  // test 1
 
   // function constructQuizList() {
   const planetName = planet.englishName
@@ -45,7 +30,6 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
   })
   // }
 
-  // test 2 
 
   function getQuizzes() {
     fetch('http://localhost:9000/api/quizzes')
@@ -60,9 +44,9 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
     getQuizzes();
   }, []);
 
-  // useEffect(() => {
-
-  // }, [planet]);
+  useEffect(() => {
+    setConstructedQuizzes(quizList)
+  }, [planet]);
 
 
   return (
@@ -72,11 +56,11 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
       {/* <p>{console.log(planetName)}</p> */}
       {/* <p>{console.log(planet)} </p> */}
       {console.log(quizList)}
-      {console.log(constructedQuizes)}
+      {console.log(constructedQuizzes)}
       <>{quizList}</>
       <PlanetSelector planets={planets} getSelectedPlanet={getSelectedPlanet} />
-      <Questions handleSubmit={handleSubmit} quizzes={quizzes} answerBoolean={answerBoolean} planets={planets} planet={planet}
-      />
+      <Questions handleSubmit={handleSubmit} answerBoolean={answerBoolean} planets={planets} planet={planet}
+        quizzes={constructedQuizzes} />
       <Feedback quizzes={quizzes} answerBoolean={answerBoolean} />
     </section>
   )
