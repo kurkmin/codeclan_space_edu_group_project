@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import styled from "styled-components";
 
+import Footer from "../components/elements/Footer";
 import Header from "../components/elements/Header";
 import Homepage from "./Homepage";
 import SolarSystemContainer from "./SolarSystemContainer";
@@ -94,7 +95,9 @@ const MainContainer = () => {
                         element={<QuizContainer planets={planetObjects} planet={planet}/>}
                     />
                 </Routes>
-                {/* footer */}
+                {
+                    window.location.pathname!=='/' ? <Footer users={users} /> : null
+                }
             </Router>
         </>
     )
