@@ -1,4 +1,107 @@
-body{
-  background-color: #333;
-  color: #ddd;
+
+/* 
+CodeClan JS Project Wk9
+*/
+
+/* FONT import font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Orbitron:wght@400;700;900&display=swap');
+
+:root{
+  --text-30: hsl(197, 100%, 96%);
+  --viewport-background: hsl(310, 86%, 3%);
+  --ss-container-width: 74rem;
+  --box-shadow-50: -2px 1px 4px 2px rgba(0,0,0,0.6), 
+  -2px 4px 12px 6px rgba(0,0,0,0.1);
+
+  --transition: all 0.2s ease-in-out;
 }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding:0;
+}
+
+/* @font-face {
+  font-family: Anurati;
+  src: url("fonts/Anurati-Regular.otf") format("opentype");
+} */
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  background-color: var(--viewport-background);
+  /* background-image: url('./images/stars.png'); */
+  }
+
+body {
+  /* position: relative; */
+  min-height: 98vh;
+  width: 100%;
+  font-family: 'Exo 2', sans-serif;
+  display: grid;
+  place-items: center;
+  /* Grid Might cause problems with positiin absolute?? */
+}
+
+h1, 
+h2,
+h3 {
+  font-family: Orbitron;
+}
+
+.solar-system-splash {
+  width: var(--ss-container-width);
+  height: var(--ss-container-width);
+  /* overflow: hidden; */
+
+  /* background-color: #002020; */
+
+}
+
+
+
+.sun,
+.transit,
+.orbit,
+.orbit + div,
+.orbit + div > div {
+  /* position: absolute; */
+  
+}
+
+/* .sun {
+
+  --sun-diameter: calc( var(--ss-container-width) / 4 );
+  --sun-diameter-third: calc( var(--sun-diameter) / 3 );
+  --sun-diameter-doubled: calc( var(--sun-diameter) * 1.6 );
+
+  height:  var(--sun-diameter);
+  width:  var(--sun-diameter);
+  background-color: #00d9ff;
+  transform: translateX(50%) translateY(-50%);
+  top: 50%;
+  right: 50%;
+  border-radius: 50%;
+  box-shadow: 
+              inset 0 0 2rem 0rem rgba(254, 255, 223, 1),
+              inset -4rem 4rem 3rem 2rem rgba(255, 64, 0, 0.21),
+              inset 0 0 var(--sun-diameter-third) var(--sun-diameter) rgb(255, 255, 255),
+              -5rem -5rem var(--sun-diameter-third)  var(--sun-diameter-third) rgba(0, 0, 0, 0.2),
+              0 0 3rem 0.2rem rgb(255, 176, 73),
+              -10rem var(--sun-diameter-third) var(--sun-diameter-doubled)  var(--sun-diameter-third) rgba(80, 6, 239, 0.142),
+              var(--sun-diameter-third) -10rem var(--sun-diameter-doubled)  var(--sun-diameter-third) rgba(254, 231, 105, 0.2)
+              ;
+} */
+
+.solar-system {
+  width: auto;
+  min-height: 100%;
+  position: relative;
+  /* background-color: #100008; */
+  /* border: 1px solid white; */
+  /* transform: perspective(122rem); */
+  /* perspective will need position relative on parent && position absolute on child!! */
+}
+

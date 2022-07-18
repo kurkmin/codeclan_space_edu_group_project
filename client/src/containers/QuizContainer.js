@@ -31,11 +31,11 @@ function QuizContainer({ planets }) {
   }, []);
 
   return (
-    <>
+    <section className='container container-quiz'>
       <h1>I'm the quiz container</h1>
       <Questions handleSubmit={handleSubmit} quizzes={quizzes} answerBoolean={answerBoolean}/>
       <Feedback quizzes={quizzes} answerBoolean={answerBoolean}/>
-    </>
+    </section>
   )
 
 }
