@@ -27,6 +27,10 @@ function Homepage() {
           <img className="planet-animation border-radius-50" width="200" src="/images/earth_large_processed.webp" alt="The Earth from space, gently orbiting the sun." />
         </div>
 
+        <div className="astro2">
+          <img className="" width="200" src="/images/spaceman.png" alt="The Earth from space, gently orbiting the sun." />
+        </div>
+
       </div>
 
     </>
