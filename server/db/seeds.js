@@ -29,7 +29,7 @@ db.users.insertMany([
 ])
 db.quizzes.insertMany([
     {
-        "question": 'What is the gravity of Earth?',
+        "question": 'What is the gravity of Earth',
         "answer": 9.8
     },
     {
