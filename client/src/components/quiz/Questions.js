@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PlanetDetail from '../solar/PlanetDetail';
 
 function Questions({ quizzes, handleSubmit, answerBoolean }) {
 
@@ -18,6 +19,13 @@ function Questions({ quizzes, handleSubmit, answerBoolean }) {
     console.log(formData);
     handleSubmit(formData);
   }
+
+  const checkMoons = (planet) => {
+    let hasMoons = false
+    if (planet.moons !== null){
+      hasMoons = true
+    }
+  } 
 
 
   const quizzesList = quizzes.map((quiz) => {

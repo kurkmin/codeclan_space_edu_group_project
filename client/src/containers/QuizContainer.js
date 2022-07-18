@@ -5,17 +5,14 @@ import Questions from '../components/quiz/Questions';
 function QuizContainer({ planets }) {
 
   const [quizzes, setQuizzes] = useState([]);
-  const [answerBoolean, setAnswerBoolean] = useState([]); 
+  const [answerBoolean, setAnswerBoolean] = useState(null); 
 
   const handleSubmit = (submittedAnswer) => {
-    console.log("FROM CONTAINER " + submittedAnswer.inputAnswer + " ID:" + submittedAnswer.questionId);
     const question_check = quizzes.find(quizzes => submittedAnswer.questionId == quizzes._id)
     if (question_check.answer == submittedAnswer.inputAnswer) {
-      console.log("Answer is incorrect")
       setAnswerBoolean(true)
     }
     else {
-      console.log("Answer is incorrect")
       setAnswerBoolean(false)
     }
   }
