@@ -42,12 +42,12 @@ const MainContainer = () => {
                 planet.imageTwo = data.collection.items[1];
                 // console.log(planet.imageOne);
             }
-                )
-            );
+            )
+        );
         setPlanetObjects(newPlanets);
         // maybe in here? map planetObjects after saved by french
         // (data.collection.items[0].links[0].href)) 
-        
+
     }
 
 
@@ -55,9 +55,9 @@ const MainContainer = () => {
         getFrenchPlanets()
     }, [])
 
-    const getSelectedPlanet = ( id ) => {
-    const selectedPlanet = planetObjects[id];
-    setPlanet(selectedPlanet);
+    const getSelectedPlanet = (id) => {
+        const selectedPlanet = planetObjects[id];
+        setPlanet(selectedPlanet);
     }
 
     // users api imported from local database 
@@ -78,7 +78,7 @@ const MainContainer = () => {
         <>
             <Router>
                 {
-                    window.location.pathname!=='/' ? <Header users={users} /> : null
+                    window.location.pathname !== '/' ? <Header users={users} /> : null
                 }
                 <Routes>
                     <Route
@@ -87,11 +87,11 @@ const MainContainer = () => {
                     />
                     <Route
                         path="/explore"
-                        element={<SolarSystemContainer planets={planetObjects} planet={planet} getSelectedPlanet={getSelectedPlanet}/>}
+                        element={<SolarSystemContainer planets={planetObjects} planet={planet} getSelectedPlanet={getSelectedPlanet} />}
                     />
                     <Route
                         path="/quizzes"
-                        element={<QuizContainer planets={planetObjects} planet={planet}/>}
+                        element={<QuizContainer planets={planetObjects} planet={planet} getSelectedPlanet={getSelectedPlanet} />}
                     />
                 </Routes>
                 {/* footer */}
