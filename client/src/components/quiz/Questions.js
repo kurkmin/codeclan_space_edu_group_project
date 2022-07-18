@@ -27,13 +27,13 @@ function Questions({ quizzes, handleSubmit, answerBoolean }) {
     }
   }
 
-  const quizzesList = quizzes.map((quiz, planet) => {
+  const quizzesList = quizzes.map((quiz, index) => {
     return (
 
-      <li key={quiz._id}>{quiz}
+      <li key={index}>{quiz}
         <form onSubmit={onSubmit}>
-          <input type="hidden" name="questionId" value={quiz} />
-          <input name="inputAnswer" id={quiz} onChange={onChange} type="text" value={selectedAnswer} />
+          <input type="hidden" name="questionId" value={index} />
+          <input name="inputAnswer" id={index} onChange={onChange} type="text" value={selectedAnswer} />
           <input type="submit" value="Check" />
         </form>
       </li>

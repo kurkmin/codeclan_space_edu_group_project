@@ -35,7 +35,7 @@ db.quizzes.insertMany([
         "question": "What is French name of "
     },
     {
-        "question": "Does have any moons?"
+        "question": "Are there any moons around the planet "
     },
     {
         "question": "what is the radius of "

@@ -6,12 +6,15 @@ import PlanetSelector from '../components/solar/PlanetSelector';
 function QuizContainer({ planets, planet, getSelectedPlanet }) {
 
   const [quizzes, setQuizzes] = useState([]);
-  const [answerBoolean, setAnswerBoolean] = useState(null);
   const [constructedQuizzes, setConstructedQuizzes] = useState([]);
+  const [answerBoolean, setAnswerBoolean] = useState(null);
+
+  // const answer1 = [planet.g
 
   const handleSubmit = (submittedAnswer) => {
-    const question_check = quizzes.find(quizzes => submittedAnswer.questionId == quizzes._id)
-    if (question_check.answer == submittedAnswer.inputAnswer) {
+    const question_check = quizzes.find((quiz, index) => quiz.index == submittedAnswer.questionId)
+    // console.log(quiz.index)
+    if (answer1 == submittedAnswer.inputAnswer) {
       setAnswerBoolean(true)
     }
     else {
@@ -19,15 +22,20 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
     }
   }
 
+  // const answer2 = planet.className
+  // //const answer3 = check moons function
+  // etc
 
-
-  // function constructQuizList() {
   const planetName = planet.englishName
   const quizList = quizzes.map((quiz) => {
     return (
-      quiz.question + planetName
+      quiz.question + planetName + "?"
     )
   })
+
+
+  // const questionOneCheck = () {
+  //   if (quiz[0]. )
   // }
 
 
@@ -36,10 +44,8 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
       .then(res => res.json())
       .then(data => setQuizzes(data))
       .then(setConstructedQuizzes(quizList))
-    // .then(quizList)
-    // .then(console.log(quizList))
-
   }
+
   useEffect(() => {
     getQuizzes();
   }, []);
@@ -52,12 +58,6 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
   return (
     <section className='container container-quiz'>
       <h1>I'm the quiz container</h1>
-      {/* <p>{console.log(constructQuizList)}</p> */}
-      {/* <p>{console.log(planetName)}</p> */}
-      {/* <p>{console.log(planet)} </p> */}
-      {console.log(quizList)}
-      {console.log(constructedQuizzes)}
-      <>{quizList}</>
       <PlanetSelector planets={planets} getSelectedPlanet={getSelectedPlanet} />
       <Questions handleSubmit={handleSubmit} answerBoolean={answerBoolean} planets={planets} planet={planet}
         quizzes={constructedQuizzes} />
