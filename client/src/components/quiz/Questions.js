@@ -22,31 +22,48 @@ function Questions({ quizzes, handleSubmit, answerBoolean }) {
 
   const checkMoons = (planet) => {
     let hasMoons = false
-    if (planet.moons !== null){
+    if (planet.moons !== null) {
       hasMoons = true
     }
-  } 
+  }
 
-
-  const quizzesList = quizzes.map((quiz) => {
+  const quizzesList = quizzes.map((quiz, planet) => {
     return (
+
+      // quizzes[0]answer = planet.gravity
 
 
       <li key={quiz._id}>{quiz.question}
         <form onSubmit={onSubmit}>
           <input type="hidden" name="questionId" value={quiz._id} />
           <input name="inputAnswer" id={quiz._id} onChange={onChange} type="text" value={selectedAnswer} />
-
-          {/* <select name="inputAnswer" id={quiz._id} onChange={onChange} type="text" value={selectedAnswer} >
-            <option value="wrong">La Merde</option>
-            <option value={quiz.answer}>{quiz.answer}</option> 
-          </select>*/}
-
           <input type="submit" value="Check" />
         </form>
       </li>
     )
   });
+
+
+
+  // const quizzesList = quizzes.map((quiz) => {
+  //   return (
+
+
+  //     <li key={quiz._id}>{quiz.question}
+  //       <form onSubmit={onSubmit}>
+  //         <input type="hidden" name="questionId" value={quiz._id} />
+  //         <input name="inputAnswer" id={quiz._id} onChange={onChange} type="text" value={selectedAnswer} />
+
+  //         {/* <select name="inputAnswer" id={quiz._id} onChange={onChange} type="text" value={selectedAnswer} >
+  //           <option value="wrong">La Merde</option>
+  //           <option value={quiz.answer}>{quiz.answer}</option> 
+  //         </select>*/}
+
+  //         <input type="submit" value="Check" />
+  //       </form>
+  //     </li>
+  //   )
+  // });
 
   return (
     <div className="quiz-questions">

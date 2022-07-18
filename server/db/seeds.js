@@ -29,23 +29,18 @@ db.users.insertMany([
 ])
 db.quizzes.insertMany([
     {
-        "question": 'What is the gravity of Earth',
-        "answer": 9.8
+        "question": 'What is the gravity of '
     },
     {
-        "question": "What is French name of Earth?",
-        "answer": "La Terre",
+        "question": "What is French name of "
     },
     {
-        "question": "Does the Earth have any moons?",
-        "answer": true,
+        "question": "Does have any moons?"
     },
     {
-        "question": "what is the radius of the earth",
-        "answer": 6371.0084
+        "question": "what is the radius of "
     },
     {
-        "question": "What is the density of Earth?",
-        "answer": 5.51360
+        "question": "What is the density of "
     }
 ])
