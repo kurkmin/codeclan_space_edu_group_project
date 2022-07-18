@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Header from "../components/elements/Header";
 import Homepage from "./Homepage";
 import SolarSystemContainer from "./SolarSystemContainer";
+import StatisticsContainer from "./StatisticsContainer";
 import QuizContainer from "./QuizContainer";
 
 const MainContainer = () => {
@@ -37,14 +38,11 @@ const MainContainer = () => {
             .then(data => {
                 planet.imageOne = data.collection.items[0];
                 planet.imageTwo = data.collection.items[1];
-                // console.log(planet.imageOne);
-            }
-                )
+            })
             );
         setPlanetObjects(newPlanets);
         // maybe in here? map planetObjects after saved by french
-        // (data.collection.items[0].links[0].href)) 
-        
+        // (data.collection.items[0].links[0].href))  
     }
 
     useEffect(() => {
@@ -83,6 +81,10 @@ const MainContainer = () => {
                     <Route
                         path="/quizzes"
                         element={<QuizContainer planets={planetObjects} />}
+                    />
+                    <Route
+                        path="/statistics"
+                        element={<StatisticsContainer planets={planetObjects} />}
                     />
                 </Routes>
                 {/* footer */}
