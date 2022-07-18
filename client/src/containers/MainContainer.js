@@ -21,7 +21,10 @@ const MainContainer = () => {
     ])
 
 
+
     const [planetObjects, setPlanetObjects] = useState([]);
+    const [planet, setPlanet] = useState([]);
+
 
     const frenchAPI = 'https://api.le-systeme-solaire.net/rest/bodies/'
     const nasaImages = 'https://images-api.nasa.gov/search?description='
@@ -47,9 +50,15 @@ const MainContainer = () => {
         
     }
 
+
     useEffect(() => {
         getFrenchPlanets()
     }, [])
+
+    const getSelectedPlanet = ( id ) => {
+    const selectedPlanet = planetObjects[id];
+    setPlanet(selectedPlanet);
+    }
 
     // users api imported from local database 
 
@@ -78,11 +87,11 @@ const MainContainer = () => {
                     />
                     <Route
                         path="/explore"
-                        element={<SolarSystemContainer planets={planetObjects} />}
+                        element={<SolarSystemContainer planets={planetObjects} planet={planet} getSelectedPlanet={getSelectedPlanet}/>}
                     />
                     <Route
                         path="/quizzes"
-                        element={<QuizContainer planets={planetObjects} />}
+                        element={<QuizContainer planets={planetObjects} planet={planet}/>}
                     />
                 </Routes>
                 {/* footer */}
