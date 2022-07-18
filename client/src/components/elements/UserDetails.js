@@ -4,6 +4,11 @@ import React from 'react';
 const UserDetail = ({ users, currentUser }) => {
 
   const userObject = users.find( user => user.name === currentUser);
+
+  if(!userObject){
+    return
+  }
+
   console.log("USER OBJECT" + currentUser);
   return (
     <>
