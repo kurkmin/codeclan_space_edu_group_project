@@ -35,15 +35,7 @@ html {
   /* background-image: url('./images/stars.png'); */
   }
 
-body {
-  /* position: relative; */
-  min-height: 98vh;
-  width: 100%;
-  font-family: 'Exo 2', sans-serif;
-  display: grid;
-  place-items: center;
-  /* Grid Might cause problems with positiin absolute?? */
-}
+
 
 h1, 
 h2,

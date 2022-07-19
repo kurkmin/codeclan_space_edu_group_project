@@ -5,22 +5,22 @@ import PlanetSelector from '../components/solar/PlanetSelector';
 
 
 
-function SolarSystemContainer({ planets }) {
+function SolarSystemContainer({ planets, planet, getSelectedPlanet }) {
 
-  const [planet, setPlanet] = useState({});
+  // const [planet, setPlanet] = useState({});
 
-  const getSelectedPlanet = ( id ) => {
-  const selectedPlanet = planets[id];
-  setPlanet(selectedPlanet);
-  }
+  // const getSelectedPlanet = ( id ) => {
+  // const selectedPlanet = planets[id];
+  // setPlanet(selectedPlanet);
+  // }
 
   return (
-    <>
-      <h1> Container </h1>
+    <div className='container'>
+      <h1> Explore The Planets </h1>
       <PlanetSelector planets={planets} getSelectedPlanet={getSelectedPlanet}/>
       <PlanetDetail planet={planet} />
       <FunFacts />
-    </>
+    </div>
   )  
 }
 
