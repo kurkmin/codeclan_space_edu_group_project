@@ -56,7 +56,7 @@ body {
   left: 0;
 
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   /* transform: translateX(50%) translateY(-70%); */
   color: rgb(255, 255, 255);
   display: flex;
@@ -64,6 +64,7 @@ body {
   justify-content: space-around;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.113);
+
 }
 
 .transit-heading > h1 {
@@ -286,8 +287,24 @@ body {
 
 /* IMAGES */
 
+.solar-animation {
+  animation: solar 60s linear infinite;
+}
+
 .planet-animation {
   animation: spin-right 12s linear infinite;
+}
+
+@keyframes solar {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
 }
 
 @keyframes spin-right {
