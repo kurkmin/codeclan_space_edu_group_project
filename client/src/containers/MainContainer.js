@@ -6,6 +6,7 @@ import Footer from "../components/elements/Footer";
 import Header from "../components/elements/Header";
 import Homepage from "./Homepage";
 import SolarSystemContainer from "./SolarSystemContainer";
+import StatisticsContainer from "./StatisticsContainer";
 import QuizContainer from "./QuizContainer";
 
 const MainContainer = () => {
@@ -39,16 +40,11 @@ const MainContainer = () => {
         const planetsWithImages = newPlanets.map(planet => fetch(nasaImages + planet.englishName)
             .then(res => res.json())
             .then(data => {
-                planet.imageOne = data.collection.items[0];
-                planet.imageTwo = data.collection.items[1];
-                // console.log(planet.imageOne);
-            }
-            )
-        );
+                planet.imageOne = data.collection.items[7];
+                planet.imageTwo = data.collection.items[8];
+            })
+            );
         setPlanetObjects(newPlanets);
-        // maybe in here? map planetObjects after saved by french
-        // (data.collection.items[0].links[0].href)) 
-
     }
 
 
@@ -94,6 +90,11 @@ const MainContainer = () => {
                         path="/quizzes"
                         element={<QuizContainer planets={planetObjects} planet={planet} getSelectedPlanet={getSelectedPlanet} />}
                     />
+                    <Route
+                        path="/statistics"
+                        element={<StatisticsContainer planets={planetObjects} users={users}/>}
+                    />
+                    {/* 404 route */}
                 </Routes>
                 {
                     window.location.pathname!=='/' ? <Footer users={users} /> : null

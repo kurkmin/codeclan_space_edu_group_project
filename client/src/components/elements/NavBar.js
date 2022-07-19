@@ -25,9 +25,10 @@ const NavBar = () => {
   return (
     <>
       <NavList>
-        <li><a href='/'>Home Page</a></li>
+        <li><a href='/'>Home</a></li>
         <li><a href='/explore'>Explore</a></li>
         <li><a href='/quizzes'>Quiz</a></li>
+        <li><a href='/statistics'>Statistics</a></li>
       </NavList>
     </>
   )
