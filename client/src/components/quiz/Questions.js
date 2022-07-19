@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PlanetDetail from '../solar/PlanetDetail';
+// import PlanetDetail from '../solar/PlanetDetail';
 
 function Questions({ quizzes, handleSubmit, answerBoolean }) {
 
@@ -20,12 +20,12 @@ function Questions({ quizzes, handleSubmit, answerBoolean }) {
     handleSubmit(formData);
   }
 
-  const checkMoons = (planet) => {
-    let hasMoons = false
-    if (planet.moons !== null) {
-      hasMoons = true
-    }
-  }
+  // const checkMoons = (planet) => {
+  //   let hasMoons = false
+  //   if (planet.moons !== null) {
+  //     hasMoons = true
+  //   }
+  // }
 
   const quizzesList = quizzes.map((quiz, index) => {
     return (
@@ -42,30 +42,31 @@ function Questions({ quizzes, handleSubmit, answerBoolean }) {
 
 
 
-  // const quizzesList = quizzes.map((quiz) => {
-  //   return (
+  const quizzesSelectList = quizzes.map((quiz, index) => {
+    return (
 
 
-  //     <li key={quiz._id}>{quiz.question}
-  //       <form onSubmit={onSubmit}>
-  //         <input type="hidden" name="questionId" value={quiz._id} />
-  //         <input name="inputAnswer" id={quiz._id} onChange={onChange} type="text" value={selectedAnswer} />
+      <li key={index}>{quiz}
+        {/* <form onSubmit={onSubmit}>
+          <input type="hidden" name="questionId" value={index} />
+          <input name="inputAnswer" id={index} onChange={onChange} type="text" value={selectedAnswer} /> */}
 
-  //         {/* <select name="inputAnswer" id={quiz._id} onChange={onChange} type="text" value={selectedAnswer} >
-  //           <option value="wrong">La Merde</option>
-  //           <option value={quiz.answer}>{quiz.answer}</option> 
-  //         </select>*/}
+          <select name="inputAnswer" id={index} onChange={onChange} type="text" value={selectedAnswer} >
+            <option value="wrong">Some nonsense</option>
+            <option value={quiz.answer}>{quiz.index}</option> 
+          </select>
 
-  //         <input type="submit" value="Check" />
-  //       </form>
-  //     </li>
-  //   )
-  // });
+          <input type="submit" value="Check" />
+        {/* </form> */}
+      </li>
+    )
+  });
 
   return (
     <div className="quiz-questions">
       <ul>
         {quizzesList}
+        {/* {quizzesSelectList} */}
       </ul>
     </div>
   )

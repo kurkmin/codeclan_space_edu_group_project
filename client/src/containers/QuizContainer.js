@@ -8,8 +8,8 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
   const [quizzes, setQuizzes] = useState([]);
   const [constructedQuizzes, setConstructedQuizzes] = useState([]);
   const [answerBoolean, setAnswerBoolean] = useState(null);
-
-  const answerPaths = [ planet.gravity, planet.name, planet.moons, planet.meanRadius, planet.density]
+  
+  const answerPaths = [planet.gravity, planet.name, planet.moons, planet.meanRadius, planet.density]
 
   const handleSubmit = (submittedAnswer) => {
     const question_check = quizzes.find((quiz, index) => quiz.index === submittedAnswer.questionId)
@@ -17,8 +17,8 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
    
     if (answerPaths[index] == submittedAnswer.inputAnswer) {
       setAnswerBoolean(true)
-
     }
+
     else {
       setAnswerBoolean(false)
     }
@@ -59,7 +59,7 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
 
   return (
     <section className='container container-quiz'>
-      <h1>I'm the quiz container</h1>
+      <h1>Please select a quiz!</h1>
       <PlanetSelector planets={planets} getSelectedPlanet={getSelectedPlanet} />
       <Questions handleSubmit={handleSubmit} answerBoolean={answerBoolean} planets={planets} planet={planet}
         quizzes={constructedQuizzes} />
