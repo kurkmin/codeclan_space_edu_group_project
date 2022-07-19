@@ -65,7 +65,7 @@ function Questions({ quizzes, handleSubmit, answerBoolean , correctAnswers, plan
 
           <select name="inputAnswer" id={index} onChange={onChange} type="text" value={selectedAnswer} >
             <option value="wrong">Some nonsense</option>
-            <option value={quiz.answer}>Correct Answer</option> 
+            <option value={quiz.answer}>{correctAnswers[index]}</option> 
           </select>
 
           <input type="submit" value="Check" />
