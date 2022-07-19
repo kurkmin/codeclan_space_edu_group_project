@@ -47,6 +47,22 @@ html {
     gap: 2rem;
   }
 
+  main.quiz-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      'menu menu'
+      'questions feedback'
+    ;
+    gap: 2rem;
+    align-items: center;
+    justify-items: start;
+  }
+
+
+  .quiz-questions {
+    grid-area: questions;
+
+  }
 `;
 
 export default GlobalStyle;

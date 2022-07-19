@@ -6,6 +6,12 @@ const PlanetMenu = styled.ul`
   grid-area: menu;
   list-style-type: none;
   display: flex;
+  justify-content: center;
+
+  & > li {
+    margin-left: 2rem;
+    /* ?? SVG Icons */
+  }
 `;
 
 
@@ -18,7 +24,7 @@ function PlanetSelector( {planets, getSelectedPlanet} ) {
 
   const planetList = planets.map( ( planet, index ) => {
     return(
-      <li key={planet.id}>
+      <li className={planet.englishName.toLowerCase()} key={planet.id}>
         <button onClick={handlePlanetClick} value={index} key={planet.id}>{planet.englishName}</button>
       </li>
     );
