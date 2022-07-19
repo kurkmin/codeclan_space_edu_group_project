@@ -39,10 +39,10 @@ function StatisticsContainer({planets, users}) {
     datasets: [{
       label: 'Moons',
       type: 'bar',
-      backgroundColor: 'rgba(0,0,200,0.2)',
+      backgroundColor: 'rgba(0,0,200,0.4)',
       borderColor: 'rgba(0,0,200,1)',
       borderWidth: 1,
-      hoverBackgroundColor: 'rgba(0,0,200,0.4)',
+      hoverBackgroundColor: 'rgba(0,0,200,0.6)',
       hoverBorderColor: 'rgba(0,0,200,1)',
       data: planets.map(planet => planet.moons ? planet.moons.length : 0)
     }]
@@ -98,12 +98,40 @@ function StatisticsContainer({planets, users}) {
     },
   };
 
+  const [averageSurfaceTemp, setAverageSurfaceTemp] = useState({
+    labels: [...planetNames],
+    datasets: [{
+      label: 'Temperature (°C)',
+      type: 'bar',
+      backgroundColor: 'rgba(255,255,0,0.2)',
+      borderColor: 'rgba(255,255,0,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,255,0,0.4)',
+      hoverBorderColor: 'rgba(255,255,0,1)',
+      data: planets.map(planet => planet.avgTemp - 273.15)
+    }]
+  })
+  const temperatureOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Average Surface Temperature (°C)',
+        position: 'bottom',
+      },
+    },
+  };
+
   return (
     <>
       <h2>Space Stats:-</h2>
       <BarGraph data={gravityData} options={gravityOptions}/>
       <BarGraph data={planetMoons} options={moonOptions}/>
       <BarGraph data={distanceFromSun} options={distanceOptions}/>
+      <BarGraph data={averageSurfaceTemp} options={temperatureOptions}/>
     </>
   )
 
