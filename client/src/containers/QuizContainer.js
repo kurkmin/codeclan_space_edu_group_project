@@ -11,6 +11,8 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
 
   // const answer1 = [planet.g
 
+  const answer1 = "answer1";
+
   const handleSubmit = (submittedAnswer) => {
     const question_check = quizzes.find((quiz, index) => quiz.index == submittedAnswer.questionId)
     // console.log(quiz.index)
