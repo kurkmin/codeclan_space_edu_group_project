@@ -9,7 +9,7 @@ function Homepage() {
 
       <div className="solar-system-splash">
           
-        <div className="solar-system">
+        <div className="solar-system solar-animation">
           <div className="transit">     
           </div>
         </div>
