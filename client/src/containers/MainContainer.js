@@ -36,13 +36,11 @@ const MainContainer = () => {
         const planetsWithImages = newPlanets.map(planet => fetch(nasaImages + planet.englishName)
             .then(res => res.json())
             .then(data => {
-                planet.imageOne = data.collection.items[0];
-                planet.imageTwo = data.collection.items[1];
+                planet.imageOne = data.collection.items[7];
+                planet.imageTwo = data.collection.items[8];
             })
             );
         setPlanetObjects(newPlanets);
-        // maybe in here? map planetObjects after saved by french
-        // (data.collection.items[0].links[0].href))  
     }
 
     useEffect(() => {
@@ -86,6 +84,7 @@ const MainContainer = () => {
                         path="/statistics"
                         element={<StatisticsContainer planets={planetObjects} users={users}/>}
                     />
+                    {/* 404 route */}
                 </Routes>
                 {/* footer */}
             </Router>
