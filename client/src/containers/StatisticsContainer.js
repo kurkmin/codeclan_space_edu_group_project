@@ -235,6 +235,11 @@ function StatisticsContainer({planets}) {
         text: 'One Years\'s Duration',
         position: 'bottom',
       },
+      scales: {
+        x: {
+          text: 'Test'
+        }
+      }
     },
   };
 
