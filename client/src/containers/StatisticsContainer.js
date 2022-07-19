@@ -125,6 +125,60 @@ function StatisticsContainer({planets, users}) {
     },
   };
 
+  const [dayLength, setDayLength] = useState({
+    labels: [...planetNames],
+    datasets: [{
+      label: 'Lenght of One Day (Hrs)',
+      type: 'bar',
+      backgroundColor: 'rgba(255,150,0,0.2)',
+      borderColor: 'rgba(255,150,0,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,150,0,0.4)',
+      hoverBorderColor: 'rgba(255,150,0,1)',
+      data: planets.map(planet => planet.axialTilt)
+    }]  
+  })
+  const dayOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'One Day\'s Duration',
+        position: 'bottom',
+      },
+    },
+  };
+
+  const [yearLength, setYearLength] = useState({
+    labels: [...planetNames],
+    datasets: [{
+      label: 'Lenght of One Year (Days)',
+      type: 'bar',
+      backgroundColor: 'rgba(255,0,0,0.2)',
+      borderColor: 'rgba(255,0,0,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,0,0,0.4)',
+      hoverBorderColor: 'rgba(255,0,0,1)',
+      data: planets.map(planet => planet.sideralOrbit)
+    }]  
+  })
+  const yearOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'One Years\'s Duration',
+        position: 'bottom',
+      },
+    },
+  };
+
   return (
     <>
       <h2>Space Stats:-</h2>
@@ -132,6 +186,8 @@ function StatisticsContainer({planets, users}) {
       <BarGraph data={planetMoons} options={moonOptions}/>
       <BarGraph data={distanceFromSun} options={distanceOptions}/>
       <BarGraph data={averageSurfaceTemp} options={temperatureOptions}/>
+      <BarGraph data={dayLength} options={dayOptions}/>
+      <BarGraph data={yearLength} options={yearOptions}/>
     </>
   )
 
