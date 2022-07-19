@@ -7,6 +7,9 @@
     --transition: all 0.2s ease-in-out;
 }
 
+body {
+  overflow-x: hidden;
+}
 
 .solar-system-splash {
   width: var(--ss-container-width);
@@ -128,14 +131,23 @@
 }
 
 @keyframes hello {
-  from {
+  0% {
     opacity: 0;
-    transform: scale(1) translateZ(50%);
+    transform: scale(0) translateZ(50%);
+    color: rgb(196, 213, 238);
+  }
+
+  80% {
+    opacity: 0;
+    transform: scale(1.2);
+    color: rgb(255, 255, 255);
   }
   
-  to {
+  100% {
     opacity: 1;
-    transform: scale(1) translateX(1%) translateY(4rem);
+    transform: scale(1) translateX(1%) translateY(8rem);
+    color: rgb(196, 213, 238);
+
   }
 }
 
@@ -201,13 +213,31 @@
   bottom: 0;
   right: 0; 
   transform-origin: 50% 50%;
-  transform: scale(4) translateX(-40rem);
-  animation-name: astro;
-  animation-duration: 6s;
+  transform: scale(4) translateX(0rem);
+  animation-name: astro2;
+  animation-duration: 16s;
   animation-iteration-count: 1;
   animation-delay: 0s;
   animation-fill-mode: forwards;
   animation-timing-function: linear;
+  opacity: 1;
+}
+
+.astro3 {
+  position: absolute;
+  bottom: 0;
+  right: 80%; 
+  width: 5rem;
+  height:5rem;
+  background-color: #d20;
+  transform-origin: 50% 50%;
+  transform: scale(1) translateX(-18rem);
+  animation-name: astro3;
+  animation-duration: 6s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
   opacity: 1;
 }
 
@@ -225,6 +255,42 @@
   100% {
     transform: scale(0) translateX(40rem);
     
+  }
+}
+
+@keyframes astro2  {
+  0% {
+    transform: scale(4) translateX(0rem) rotate(10deg);
+    
+  } 
+  10% {
+    transform: scale(3) rotate(2deg);
+  }
+  20% {
+    transform: scale(2.5) rotate(20deg);
+  }
+  30% {
+    transform: scale(2.2) rotate(10deg);
+  }
+  
+  50% {
+    transform: scale(2.6) rotate(-10deg);
+  }
+
+
+  100% {
+    transform: scale(3) translateX(18rem) rotate(-60deg);
+    
+  }
+}
+
+@keyframes astro3  {
+  0% {
+    transform: scale(10) translateX(0rem) rotate(10deg); 
+  } 
+
+ 100% {
+    transform: scale(10) translateX(-18rem) translateY(-10rem) rotate(-60deg); 
   }
 }
 

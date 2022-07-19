@@ -11,13 +11,14 @@ const HeaderBox = styled.header`
   margin-bottom: 2rem;
   display: flex;
   justify-content: right;
-  flex: 0 0 100%;
-  align-content: center;
-  background-color: #333;
+  align-items: center;
+  background-color: rgba(0,0,0, 0.5);
   `;
 
 const UserBox = styled.div`
-  padding: 0 3rem;
+  height: 100%;
+  padding: 0 0rem;
+  padding-right: 3rem
   `;
 
 const BrandBox = styled.div`

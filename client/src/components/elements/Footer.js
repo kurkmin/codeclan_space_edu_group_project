@@ -11,6 +11,7 @@ const Footer = () => {
   return (
       <FooterBox>
         <p>Footer text in here</p>
+        <p>Footer text in here</p>
       </FooterBox>
 
   );

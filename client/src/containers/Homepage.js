@@ -1,6 +1,6 @@
 import React from 'react';
-import '../App.css';
-import '../SplashPage.css';
+// import '../App.css';
+import './SplashPage.css';
 
 function Homepage() {
 
@@ -20,6 +20,7 @@ function Homepage() {
           <h2>Hello, Earthling !</h2>
           <p className="button">
             <a href="/explore"><button className="button__button button-slide">Make it So, Number One &gt;</button></a>
+            <a href='/'><button className="button__button button-slide">Replay</button></a>
           </p>
         </div>
 
@@ -30,6 +31,8 @@ function Homepage() {
         <div className="astro2">
           <img className="" width="200" src="/images/spaceman.png" alt="The Earth from space, gently orbiting the sun." />
         </div>
+
+        {/* <div className="astro3 border-radius-50"></div> */}
 
       </div>
 
