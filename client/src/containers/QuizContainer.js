@@ -9,15 +9,15 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
   const [constructedQuizzes, setConstructedQuizzes] = useState([]);
   const [answerBoolean, setAnswerBoolean] = useState(null);
 
-  // const answer1 = [planet.g
-
-  const answer1 = "answer1";
+  const answerPaths = [ planet.gravity, planet.name, planet.moons, planet.meanRadius, planet.density]
 
   const handleSubmit = (submittedAnswer) => {
-    const question_check = quizzes.find((quiz, index) => quiz.index == submittedAnswer.questionId)
-    // console.log(quiz.index)
-    if (answer1 == submittedAnswer.inputAnswer) {
+    const question_check = quizzes.find((quiz, index) => quiz.index === submittedAnswer.questionId)
+    let index = submittedAnswer.questionId
+   
+    if (answerPaths[index] == submittedAnswer.inputAnswer) {
       setAnswerBoolean(true)
+
     }
     else {
       setAnswerBoolean(false)
