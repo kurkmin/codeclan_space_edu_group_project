@@ -55,7 +55,6 @@ function Questions({ quizzes, handleSubmit, answerBoolean , correctAnswers, plan
       </ul>
     </div>
   )
-
 }
 
 export default Questions;

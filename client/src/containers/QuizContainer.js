@@ -12,11 +12,9 @@ function QuizContainer({ planets, planet, getSelectedPlanet, formData }) {
   const [planetMoons, setPlanetMoons] = useState("");
   
   const answerPaths = [planet.gravity, planet.name, planetMoons, planet.meanRadius, planet.density]
-  // const answerPaths = ["Answer paths"]
   
 
   const handleSubmit = (formData) => {
-    // const question_check = 
     let index = formData.questionId
    
     if (answerPaths[index] == formData.inputAnswer) {
@@ -44,11 +42,6 @@ function QuizContainer({ planets, planet, getSelectedPlanet, formData }) {
       quiz.question + planetName + "?"
     )
   })
-
-
-  // const questionOneCheck = () {
-  //   if (quiz[0]. )
-  // }
 
 
   function getQuizzes() {
