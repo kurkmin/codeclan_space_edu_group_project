@@ -1,5 +1,14 @@
 import React from 'react';
 
+import styled from 'styled-components';
+
+const PlanetMenu = styled.ul`
+  grid-area: menu;
+  list-style-type: none;
+  display: flex;
+`;
+
+
 function PlanetSelector( {planets, getSelectedPlanet} ) {
 
   const handlePlanetClick = (event) => {
@@ -16,9 +25,9 @@ function PlanetSelector( {planets, getSelectedPlanet} ) {
   });
 
   return (
-    <ul>
+    <PlanetMenu>
       {planetList}
-    </ul>
+    </PlanetMenu>
   );
 
 }

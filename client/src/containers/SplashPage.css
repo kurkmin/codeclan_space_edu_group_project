@@ -32,15 +32,15 @@ body {
   left:40vw;
   transform: translateX(50%) translateY(-50%);
   border-radius: 50%;
-  box-shadow: inset 2rem 0 2rem 0rem rgba(157, 255, 230, 0.828),
+  box-shadow: inset 1rem 1rem 2rem 0.6rem rgb(94, 255, 223),
   inset -2rem 2rem 3rem 2rem rgba(255, 85, 0, 0.2),
   inset 0 0 var(--sun-diameter-third) var(--sun-diameter) rgba(2, 2, 2, 0.825),
-  -3rem -2rem 1rem 3rem hsla(40, 100%, 88%, 0.922),
-  0 0 12rem 0.3rem rgba(255, 219, 182, 0.921),
+  -3rem -2rem 1rem 3rem hsla(51, 100%, 77%, 0.703),
+  0 0 5rem 1rem rgba(255, 255, 255, 0.921),
   inset 0 0 0rem 0.3rem rgba(69, 61, 53, 0.921),
   0 0 3rem 0.2rem rgb(250, 218, 8),
   -12rem var(--sun-diameter-third) var(--sun-diameter-doubled)  var(--sun-diameter-third) rgba(129, 190, 250, 0.842),
-  var(--sun-diameter-doubled) var(--sun-diameter-third) var(--sun-diameter-doubled)  var(--sun-diameter) rgba(239, 255, 136, 0.348),
+  var(--sun-diameter-doubled) var(--sun-diameter-third) var(--sun-diameter-doubled)  var(--sun-diameter) rgba(132, 255, 243, 0.348),
   -30rem -6rem var(--sun-diameter-doubled)  var(--sun-diameter) rgba(57, 0, 0, 0.614),
   var(--sun-diameter-third) -12rem var(--sun-diameter-doubled)  var(--sun-diameter-third) rgba(86, 1, 109, 0.604)
   ;
@@ -125,7 +125,7 @@ body {
   animation-name: hello;
   animation-duration: 2s;
   animation-iteration-count: 1;
-  animation-delay: 14s;
+  animation-delay: 11s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
@@ -156,7 +156,7 @@ body {
   animation-name: button;
   animation-duration: 3s;
   animation-iteration-count: 1;
-  animation-delay: 18s;
+  animation-delay: 15s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
@@ -213,29 +213,27 @@ body {
   bottom: 0;
   right: 0; 
   transform-origin: 50% 50%;
-  transform: scale(4) translateX(0rem);
+  transform: scale(2) translateX(0rem);
   animation-name: astro2;
-  animation-duration: 16s;
+  animation-duration: 8s;
   animation-iteration-count: 1;
-  animation-delay: 0s;
+  animation-delay: 6s;
   animation-fill-mode: forwards;
+  animation-direction: alternate-reverse;
   animation-timing-function: linear;
   opacity: 1;
 }
 
 .astro3 {
   position: absolute;
-  bottom: 0;
-  right: 80%; 
-  width: 5rem;
-  height:5rem;
-  background-color: #d20;
+  bottom: 20%;
+  left: 10%; 
   transform-origin: 50% 50%;
-  transform: scale(1) translateX(-18rem);
+  transform: scale(2) translateX(30rem) translateY(30rem);
   animation-name: astro3;
-  animation-duration: 6s;
-  animation-iteration-count: 1;
-  animation-delay: 0s;
+  animation-duration: 12s;
+  animation-iteration-count: 2;
+  animation-delay: 4s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
   opacity: 1;
@@ -260,37 +258,29 @@ body {
 
 @keyframes astro2  {
   0% {
-    transform: scale(4) translateX(0rem) rotate(10deg);
+    transform: scale(2) translateX(0rem) rotate(10deg);
     
   } 
-  10% {
-    transform: scale(3) rotate(2deg);
-  }
-  20% {
-    transform: scale(2.5) rotate(20deg);
-  }
-  30% {
-    transform: scale(2.2) rotate(10deg);
-  }
+
   
   50% {
-    transform: scale(2.6) rotate(-10deg);
+    transform: scale(2.2) rotate(-10deg);
   }
 
 
   100% {
-    transform: scale(3) translateX(18rem) rotate(-60deg);
+    transform: scale(2.8) translateX(18rem) rotate(-60deg);
     
   }
 }
 
 @keyframes astro3  {
   0% {
-    transform: scale(10) translateX(0rem) rotate(10deg); 
+    transform: scale(2) translateX(-30rem) translateY(30rem); 
   } 
 
  100% {
-    transform: scale(10) translateX(-18rem) translateY(-10rem) rotate(-60deg); 
+    transform: scale(0) translateX(20rem) translateY(0rem); 
   }
 }
 

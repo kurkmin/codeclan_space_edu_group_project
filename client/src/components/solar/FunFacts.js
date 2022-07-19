@@ -1,8 +1,18 @@
 import React from 'react';
 
+import styled from 'styled-components';
+
+const FactBox = styled.div`
+  grid-area: facts;
+`;
+
 function FunFacts() {
 
-  return <h2>Fun Facts</h2>
+  return (
+    <FactBox>
+      <h2>Funny Facts</h2>
+    </FactBox>
+  )
 
 }
 

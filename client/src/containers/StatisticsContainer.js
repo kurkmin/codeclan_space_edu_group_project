@@ -15,6 +15,17 @@ function StatisticsContainer({planets}) {
   // const userweight = users[0].mass
   // const userMassPerPlanet = planets.map(planet => (userweight / 9.81) * planet.gravity)
 
+
+  const graphStyle = {
+    backgroundColor: 'rgba(255, 234, 0, 0.6)',
+    borderColor: 'rgba(255, 72, 0, 1)',
+    borderWidth: 1,
+    hoverBackgroundColor:'rgba(255,99,132,0.8)',
+    hoverBorderColor: 'rgba(255, 72, 0, 1)',
+
+  }
+
+
   const [gravityData, setGravityData] = useState(null);
   function getGravity() {
     if (planetNames) {
@@ -23,10 +34,10 @@ function StatisticsContainer({planets}) {
         datasets: [{
             label: 'Gravity',
             type: 'bar',
-            backgroundColor: 'rgba(255,99,132,0.2)',
+            backgroundColor: graphStyle.backgroundColor,
             borderColor: 'rgba(255,99,132,1)',
             borderWidth: 1,
-            hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+            hoverBackgroundColor: graphStyle.backgroundColor,
             hoverBorderColor: 'rgba(255,99,132,1)',
             data: planets.map(planet => planet.gravity),
             yAxisID: 'A'
@@ -34,8 +45,8 @@ function StatisticsContainer({planets}) {
           {
             label: 'User Weight',
             type: 'line',
-            borderColor: 'rgba(255,255,0,1)',
-            backgroundColor: 'rgba(0,255,0,0.6)',
+            borderColor: graphStyle.borderColor,
+            backgroundColor: graphStyle.backgroundColor,
             data: planets.map(planet => 90 / 9.8 * planet.gravity),
             yAxisID: 'B'
           }
@@ -49,12 +60,13 @@ function StatisticsContainer({planets}) {
     plugins: {
       legend: {
         position: 'top',
+        
       },
       title: {
         display: true,
         text: 'Gravities in our Solar System',
         position: 'bottom',
-      },
+      }
     }
   };
 
@@ -253,15 +265,14 @@ function StatisticsContainer({planets}) {
   }, [planetNames])
 
   return (
-    <>
-      <h2>Space Stats:-</h2>
+    <main className="main-grid stats-grid">
       <BarGraph data={gravityData} options={gravityOptions}/>
       <BarGraph data={planetMoons} options={moonOptions}/>
       <BarGraph data={distanceFromSun} options={distanceOptions}/>
       <BarGraph data={averageSurfaceTemp} options={temperatureOptions}/>
       <BarGraph data={dayLength} options={dayOptions}/>
       <BarGraph data={yearLength} options={yearOptions}/>
-    </>
+    </main>
   )
 
 }
