@@ -7,21 +7,26 @@ import UserDetail from './UserDetails';
 
 const HeaderBox = styled.header`
   width: 100%;
+  min-height: 8vw;
   margin-bottom: 2rem;
   display: flex;
-  justify-content: space-between;
-  align-content: center;
-`;
+  justify-content: right;
+  align-items: center;
+  background-color: rgba(0,0,0, 0.5);
+  `;
 
 const UserBox = styled.div`
-  padding: 0 3rem;
-`;
+  height: 100%;
+  padding: 0 0rem;
+  padding-right: 3rem
+  `;
 
 const BrandBox = styled.div`
   padding: 0 3rem;
-`;
+  `;
 
 const NavBox = styled.div`
+  flex-grow: 2;
   padding: 0 3rem;
 `;
 
