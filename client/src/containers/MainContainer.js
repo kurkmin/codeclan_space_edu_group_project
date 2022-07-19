@@ -84,7 +84,7 @@ const MainContainer = () => {
                     />
                     <Route
                         path="/statistics"
-                        element={<StatisticsContainer planets={planetObjects} />}
+                        element={<StatisticsContainer planets={planetObjects} users={users}/>}
                     />
                 </Routes>
                 {/* footer */}
