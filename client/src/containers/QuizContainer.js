@@ -3,7 +3,7 @@ import Feedback from '../components/quiz/Feedback';
 import Questions from '../components/quiz/Questions';
 import PlanetSelector from '../components/solar/PlanetSelector';
 
-function QuizContainer({ planets, planet, getSelectedPlanet }) {
+function QuizContainer({ planets, planet, getSelectedPlanet, formData }) {
 
   const [quizzes, setQuizzes] = useState([]);
   const [constructedQuizzes, setConstructedQuizzes] = useState([]);
@@ -15,11 +15,11 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
   // const answerPaths = ["Answer paths"]
   
 
-  const handleSubmit = (submittedAnswer) => {
+  const handleSubmit = (formData) => {
     // const question_check = 
-    let index = submittedAnswer.questionId
+    let index = formData.questionId
    
-    if (answerPaths[index] == submittedAnswer.inputAnswer) {
+    if (answerPaths[index] == formData.inputAnswer) {
       setAnswerBoolean(true)
     }
 
