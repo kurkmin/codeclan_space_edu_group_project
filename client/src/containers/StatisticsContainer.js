@@ -155,7 +155,7 @@ function StatisticsContainer({planets, users}) {
   const [yearLength, setYearLength] = useState({
     labels: [...planetNames],
     datasets: [{
-      label: 'Lenght of One Year (Days)',
+      label: 'Length of One Year (Days)',
       type: 'bar',
       backgroundColor: 'rgba(255,0,0,0.2)',
       borderColor: 'rgba(255,0,0,1)',
