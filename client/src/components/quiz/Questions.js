@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+
+const QuestionBox = styled.div`
+  grid-area: questions;
+`;
 
 function Questions({ quizzes, handleSubmit, answerBoolean , correctAnswers, planet}) {
 
@@ -50,7 +55,6 @@ function Questions({ quizzes, handleSubmit, answerBoolean , correctAnswers, plan
   return (
     <div className="quiz-questions">
       <ul>
-        {/* {quizzesList} */}
         {quizzesSelectList}
       </ul>
     </div>
