@@ -72,7 +72,7 @@ const MainContainer = () => {
     }, [])
 
     return (
-        <>
+        <div className="wrapper">
             <Router>
                 {
                     window.location.pathname !== '/' ? <Header users={users} /> : null
@@ -100,7 +100,7 @@ const MainContainer = () => {
                     window.location.pathname!=='/' ? <Footer users={users} /> : null
                 }
             </Router>
-        </>
+        </div>
     )
 }
 

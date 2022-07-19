@@ -20,10 +20,33 @@ html {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .container {
+  .main-grid {
     min-height: 80vh;
+    padding: 0 4rem;
     display: grid;
   }
+
+  main.stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  main.stats-grid > div{
+    border: 1px solid rgba(255,255,255 , 0.4);
+    margin: 2rem;
+    background-color: hsla(0, 0%, 100%, 1);
+    background-color: rgba(33, 46, 65, 0.2);
+    border-radius: 2rem;;
+  }
+
+  main.planet-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+      'menu menu'
+      'images detail'
+      'facts facts';
+    gap: 2rem;
+  }
+
 `;
 
 export default GlobalStyle;

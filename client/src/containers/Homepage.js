@@ -29,10 +29,12 @@ function Homepage() {
         </div>
 
         <div className="astro2">
-          <img className="" width="200" src="/images/spaceman.png" alt="The Earth from space, gently orbiting the sun." />
+          <img className="" width="200" src="/images/spaceman.png" alt="An astronaut floating in the cosmos" />
         </div>
 
-        {/* <div className="astro3 border-radius-50"></div> */}
+        <div className="astro3">
+          <img className='planet-animation border-radius-50' width='200px' height='200px' src='/images/venus_processed.webp' alt='venus in orbit around the sun' />
+        </div>
 
       </div>
 

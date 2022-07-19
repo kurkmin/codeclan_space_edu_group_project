@@ -68,13 +68,15 @@ function QuizContainer({ planets, planet, getSelectedPlanet, formData }) {
   }, [planet])
 
   return (
-    <section className='container container-quiz'>
-      <h1>Please select a quiz!</h1>
+
+    <main className='main-grid quiz-grid'>
+      <h1>I'm the quiz container</h1>
+
       <PlanetSelector planets={planets} getSelectedPlanet={getSelectedPlanet} />
       <Questions handleSubmit={handleSubmit} answerBoolean={answerBoolean} planets={planets} planet={planet}
         quizzes={constructedQuizzes} correctAnswers={correctAnswers}/>
       <Feedback quizzes={quizzes} answerBoolean={answerBoolean} />
-    </section>
+    </main>
   )
 
 }
