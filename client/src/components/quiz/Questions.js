@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import PlanetDetail from '../solar/PlanetDetail';
 
-function Questions({ quizzes, handleSubmit, answerBoolean }) {
+function Questions({ quizzes, handleSubmit, answerBoolean , correctAnswers, planet}) {
 
   const [selectedAnswer, setSelectedAnswer] = useState()
   const [formData, setFormData] = useState({});
+  // const [planetMoons, setPlanetMoons] = useState("")
 
   const onChange = (e) => {
     const newFormData = Object.assign({}, formData);
@@ -16,19 +17,30 @@ function Questions({ quizzes, handleSubmit, answerBoolean }) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
     handleSubmit(formData);
+    console.log(planet)
   }
 
   // const checkMoons = (planet) => {
-  //   let hasMoons = false
   //   if (planet.moons !== null) {
-  //     hasMoons = true
+  //     setPlanetMoons("yes")
   //   }
+  // else {
+  //   setPlanetMoons("no")
+
+  // }
   // }
 
+  // useEffect(() => {
+  //   checkMoons(planet)
+  // }, [planet])
+
   const quizzesList = quizzes.map((quiz, index) => {
+    // if (quiz.index === 2){
+    //   checkMoons(planet)
+    // }
     return (
+
 
       <li key={index}>{quiz}
         <form onSubmit={onSubmit}>
@@ -53,7 +65,7 @@ function Questions({ quizzes, handleSubmit, answerBoolean }) {
 
           <select name="inputAnswer" id={index} onChange={onChange} type="text" value={selectedAnswer} >
             <option value="wrong">Some nonsense</option>
-            <option value={quiz.answer}>{quiz.index}</option> 
+            <option value={quiz.answer}>Correct Answer</option> 
           </select>
 
           <input type="submit" value="Check" />
@@ -61,12 +73,12 @@ function Questions({ quizzes, handleSubmit, answerBoolean }) {
       </li>
     )
   });
-
+// was expecting === revieves ==
   return (
     <div className="quiz-questions">
       <ul>
         {quizzesList}
-        {/* {quizzesSelectList} */}
+        {quizzesSelectList}
       </ul>
     </div>
   )
