@@ -61,10 +61,49 @@ function StatisticsContainer({planets, users}) {
     },
   };
 
+  const [distanceFromSun, setDistanceFromSun] = useState({
+    labels: [...planetNames],
+    datasets: [{
+      label: 'Perihelion',
+      type: 'bar',
+      backgroundColor: 'rgb(128,128,0,0.4)',
+      borderColor: 'rgba(128,128,0,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(128,128,0,0.6)',
+      hoverBorderColor: 'rgba(128,128,0,1)',
+      data: planets.map(planet => planet.perihelion)
+    },
+    {
+      label: 'Aphelion',
+      type: 'bar',
+      backgroundColor: 'rgba(128,0,128,0.2)',
+      borderColor: 'rgba(128,0,128,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(128,0,128,0.4)',
+      hoverBorderColor: 'rgba(128,0,128,1)',
+      data: planets.map(planet => planet.aphelion)      
+    }]
+  })
+  const distanceOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Distance from the Sun',
+        position: 'bottom',
+      },
+    },
+  };
+
   return (
     <>
+      <h2>Space Stats:-</h2>
       <BarGraph data={gravityData} options={gravityOptions}/>
       <BarGraph data={planetMoons} options={moonOptions}/>
+      <BarGraph data={distanceFromSun} options={distanceOptions}/>
     </>
   )
 

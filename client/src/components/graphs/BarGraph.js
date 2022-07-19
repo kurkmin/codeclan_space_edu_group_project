@@ -7,7 +7,6 @@ function BarGraph({data, options}) {
 
   return (
   <div>
-    <h2>Space Stats:-</h2>
     <Bar 
       type='bar'
       data={data}
