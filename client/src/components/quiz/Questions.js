@@ -24,6 +24,7 @@ function Questions({ quizzes, handleSubmit, answerBoolean , correctAnswers, plan
         <form onSubmit={onSubmit}>
           <input type="hidden" name="questionId" value={index} />
           <select name="inputAnswer" id={index} onChange={onChange} type="text" value={selectedAnswer} >
+            <option defaultValue="">Please Select</option>
             <option value="wrong">Some nonsense</option>
             <option value={quiz.answer}>{correctAnswers[index]}</option> 
           </select>
