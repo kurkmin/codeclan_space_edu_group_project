@@ -3,30 +3,38 @@ import Feedback from '../components/quiz/Feedback';
 import Questions from '../components/quiz/Questions';
 import PlanetSelector from '../components/solar/PlanetSelector';
 
-function QuizContainer({ planets, planet, getSelectedPlanet }) {
+function QuizContainer({ planets, planet, getSelectedPlanet, formData }) {
 
   const [quizzes, setQuizzes] = useState([]);
   const [constructedQuizzes, setConstructedQuizzes] = useState([]);
   const [answerBoolean, setAnswerBoolean] = useState(null);
+  const [correctAnswers, setCorrectAnswers] = useState([]);
+  const [planetMoons, setPlanetMoons] = useState("");
+  
+  const answerPaths = [planet.gravity, planet.name, planetMoons, planet.meanRadius, planet.density]
+  
 
-  // const answer1 = [planet.g
-
-  const answer1 = "answer1";
-
-  const handleSubmit = (submittedAnswer) => {
-    const question_check = quizzes.find((quiz, index) => quiz.index == submittedAnswer.questionId)
-    // console.log(quiz.index)
-    if (answer1 == submittedAnswer.inputAnswer) {
+  const handleSubmit = (formData) => {
+    let index = formData.questionId
+   
+    if (answerPaths[index] == formData.inputAnswer) {
       setAnswerBoolean(true)
     }
+
     else {
       setAnswerBoolean(false)
     }
   }
 
-  // const answer2 = planet.className
-  // //const answer3 = check moons function
-  // etc
+  const checkMoons = (planet) => {
+    if (planet.moons !== null) {
+      setPlanetMoons("yes")
+    }
+  else {
+    setPlanetMoons("no")
+
+  }
+  }
 
   const planetName = planet.englishName
   const quizList = quizzes.map((quiz) => {
@@ -34,11 +42,6 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
       quiz.question + planetName + "?"
     )
   })
-
-
-  // const questionOneCheck = () {
-  //   if (quiz[0]. )
-  // }
 
 
   function getQuizzes() {
@@ -56,13 +59,22 @@ function QuizContainer({ planets, planet, getSelectedPlanet }) {
     setConstructedQuizzes(quizList)
   }, [planet]);
 
+  useEffect(() => {
+    setCorrectAnswers(answerPaths)
+  }, [planet])
+
+  useEffect(() => {
+    checkMoons(planet)
+  }, [planet])
 
   return (
+
     <main className='main-grid quiz-grid'>
       <h1>I'm the quiz container</h1>
+
       <PlanetSelector planets={planets} getSelectedPlanet={getSelectedPlanet} />
       <Questions handleSubmit={handleSubmit} answerBoolean={answerBoolean} planets={planets} planet={planet}
-        quizzes={constructedQuizzes} />
+        quizzes={constructedQuizzes} correctAnswers={correctAnswers}/>
       <Feedback quizzes={quizzes} answerBoolean={answerBoolean} />
     </main>
   )
