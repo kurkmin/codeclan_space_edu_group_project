@@ -61,15 +61,40 @@ html {
       'menu menu'
       'questions feedback'
     ;
+    grid-template-rows: min-content 1fr;
     gap: 2rem;
     align-items: center;
-    justify-items: start;
+    justify-items: stretch;
   }
-
-
+  
+  
   .quiz-questions {
     grid-area: questions;
+    align-self: start;
+    
+  }
 
+  .quiz-questions ul {
+    background-color: #000;
+    list-style-type: none;
+  }
+
+  .quiz-questions li {
+    margin-bottom: 2rem;
+    margin-left: 4rem;
+  }
+  .quiz-questions li {
+    margin-bottom: 2rem;
+  }
+  
+  .quiz-feedback {
+    height: 100%;
+    grid-area: feedback;
+    align-self: start;
+  }
+
+  .quiz-question-text{
+    font-size: 2.4rem;
   }
 `;
 

@@ -25,7 +25,8 @@ function Questions({ quizzes, handleSubmit, answerBoolean , correctAnswers }) {
   const quizzesSelectList = quizzes.map((quiz, index) => {
     return (
 
-      <li key={index}>{quiz}
+      <li key={index}>
+        <p className='quiz-question-text'>{quiz}</p>
         <form onSubmit={onSubmit}>
           <input type="hidden" name="questionId" value={index} />
           <select name="inputAnswer" id={index} onChange={onChange} type="text" value={selectedAnswer} >
