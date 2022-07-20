@@ -21,7 +21,7 @@ const NavList = styled.ul`
     font-weight: 700;
     letter-spacing: 0.4rem;
     text-align: center;
-    background-color: rgba(180, 63, 0, 0.4);
+    background-color: rgba(0, 238, 255, 0.644);
     color: white;
     text-decoration: none;
     border-radius: 0.6rem;
