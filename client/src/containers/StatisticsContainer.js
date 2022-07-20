@@ -1,6 +1,16 @@
 import React, {useEffect, useState} from "react";
 
 import BarGraph from '../components/graphs/BarGraph';
+import styled from "styled-components";
+
+const GraphHeaderBox = styled.div`
+  margin: 4rem 4rem 6rem 4rem;
+
+  & p {
+    font-size: 2.4rem;
+  }
+
+`;
 
 function StatisticsContainer({planets}) {
   const [planetNames, setPlanetNames] = useState(null);
@@ -17,7 +27,7 @@ function StatisticsContainer({planets}) {
 
 
   const graphStyle = {
-    backgroundColor: 'rgba(255, 234, 0, 0.6)',
+    backgroundColor: 'rgba(255, 187, 0, 0.924)',
     borderColor: 'rgba(255, 72, 0, 1)',
     borderWidth: 1,
     hoverBackgroundColor:'rgba(255,99,132,0.8)',
@@ -78,7 +88,7 @@ function StatisticsContainer({planets}) {
       datasets: [{
         label: 'Moons',
         type: 'bar',
-        backgroundColor: 'rgba(0,0,200,0.4)',
+        backgroundColor: 'rgba(86, 190, 255, 1)',
         borderColor: 'rgba(0,0,200,1)',
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(0,0,200,0.6)',
@@ -111,20 +121,20 @@ function StatisticsContainer({planets}) {
         datasets: [{
             label: 'Perihelion',
             type: 'bar',
-            backgroundColor: 'rgb(128,128,0,0.4)',
+            backgroundColor: 'hsla(266, 100%, 49%, 0.882)',
             borderColor: 'rgba(128,128,0,1)',
             borderWidth: 1,
-            hoverBackgroundColor: 'rgba(128,128,0,0.6)',
-            hoverBorderColor: 'rgba(128,128,0,1)',
+            hoverBackgroundColor: 'hsla(266, 100%, 35%, 0.882)',
+            hoverBorderColor: 'hsla(266, 100%, 81%, 0.882)',
             data: planets.map(planet => planet.perihelion)
           },
           {
             label: 'Aphelion',
             type: 'bar',
-            backgroundColor: 'rgba(128,0,128,0.2)',
-            borderColor: 'rgba(128,0,128,1)',
+            backgroundColor: 'hsla(300, 100%, 50%, 0.882)',
+            borderColor: '#ffbeffff',
             borderWidth: 1,
-            hoverBackgroundColor: 'rgba(128,0,128,0.4)',
+            hoverBackgroundColor: 'hsla(300, 100%, 36%, 1)',
             hoverBorderColor: 'rgba(128,0,128,1)',
             data: planets.map(planet => planet.aphelion)
           }
@@ -155,8 +165,8 @@ function StatisticsContainer({planets}) {
         datasets: [{
           label: 'Temperature (°C)',
           type: 'bar',
-          backgroundColor: 'rgba(255,255,0,0.2)',
-          borderColor: 'rgba(255,255,0,1)',
+          backgroundColor: 'hsla(75, 100%, 50%, 0.733)',
+          borderColor: 'hsla(163, 88%, 94%, 1)',
           borderWidth: 1,
           hoverBackgroundColor: 'rgba(255,255,0,0.4)',
           hoverBorderColor: 'rgba(255,255,0,1)',
@@ -188,8 +198,8 @@ function StatisticsContainer({planets}) {
         datasets: [{
           label: 'Lenght of One Day (Hrs)',
           type: 'bar',
-          backgroundColor: 'rgba(255,150,0,0.2)',
-          borderColor: 'rgba(255,150,0,1)',
+          backgroundColor: 'hsla(35, 100%, 50%, 0.62)',
+          borderColor: '#ffffffff',
           borderWidth: 1,
           hoverBackgroundColor: 'rgba(255,150,0,0.4)',
           hoverBorderColor: 'rgba(255,150,0,1)',
@@ -207,7 +217,7 @@ function StatisticsContainer({planets}) {
       },
       title: {
         display: true,
-        text: 'One Day\'s Duration',
+        text: 'Day Length (Earth Hours)',
         position: 'bottom',
       },
     },
@@ -223,8 +233,8 @@ function StatisticsContainer({planets}) {
         datasets: [{
           label: 'Length of One Year (Days)',
           type: 'bar',
-          backgroundColor: 'rgba(255,0,0,0.2)',
-          borderColor: 'rgba(255,0,0,1)',
+          backgroundColor: '#ff000063',
+          borderColor: '#ff9d9dff',
           borderWidth: 1,
           hoverBackgroundColor: 'rgba(255,0,0,0.4)',
           hoverBorderColor: 'rgba(255,0,0,1)',
@@ -265,14 +275,22 @@ function StatisticsContainer({planets}) {
   }, [planetNames])
 
   return (
-    <main className="main-grid stats-grid">
-      <BarGraph data={gravityData} options={gravityOptions}/>
-      <BarGraph data={planetMoons} options={moonOptions}/>
-      <BarGraph data={distanceFromSun} options={distanceOptions}/>
-      <BarGraph data={averageSurfaceTemp} options={temperatureOptions}/>
-      <BarGraph data={dayLength} options={dayOptions}/>
-      <BarGraph data={yearLength} options={yearOptions}/>
-    </main>
+    <>
+      <GraphHeaderBox>
+        <h2>Stella Statistics</h2>
+        <p>Explore the world using numbers and discover fun facts about the Solar System.</p>
+      </GraphHeaderBox>
+
+      <main className="main-grid stats-grid">
+        <BarGraph title="Gravitation Force" data={gravityData} options={gravityOptions}/>
+        <BarGraph title="Number of Moon by Planet" data={planetMoons} options={moonOptions}/>
+        <BarGraph title="Distance from the Sun" data={distanceFromSun} options={distanceOptions}/>
+        <BarGraph title="Average Surface Temperatures" data={averageSurfaceTemp} options={temperatureOptions}/>
+        <BarGraph title="Day Length" data={dayLength} options={dayOptions}/>
+        <BarGraph title="Year Length (Earth Days)" data={yearLength} options={yearOptions}/>
+      </main>
+    </>
+    
   )
 
 }
