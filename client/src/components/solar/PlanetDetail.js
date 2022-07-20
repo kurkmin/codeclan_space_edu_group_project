@@ -63,6 +63,13 @@ const PlanetDetailBox = styled.div`
     text-align:center;
   }
 
+  & a {
+    color: rgba(255,255,255, .8);
+  }
+
+  & a:hover {
+    color: #ffd900e4;
+  }
 `;
 
 const ImageBox = styled.div`
@@ -88,7 +95,11 @@ function PlanetDetail({ planet, user }) {
   const userMass = user ? user.mass : 100;
   const userWeight = ((userMass / 9.81) * planet.gravity).toFixed(0);
 
-  if (!planet.englishName) return "Please Select a Planet.";
+  if (!planet.englishName) {
+    return (
+      <h2>Please select a planet above</h2>
+    );
+  }
   // console.log(planet.moons)
 
 
@@ -148,14 +159,16 @@ function PlanetDetail({ planet, user }) {
         <p className='tagLine'>{descriptions[planet.englishName].description}</p>
         
         <ul className='planet-detail'>
-          <li><span>Gravity</span> {planet.gravity}</li>
-          <li><span>{planet.englishName} is a </span>{planet.isPlanet ? "Proper Planet" : "Wannabe Rock"}</li>
-          <li><span>Your Weight on {planet.englishName} would be {userWeight} kg</span> </li>
-          <li>The average surface temperature in Kelvin is {planet.avgTemp} Kelvin</li>
-          <li>The average surface temperature in Celsius is {planet.avgTemp - 273} &deg;C</li>
-          <li><a href='https://www.amazon.co.uk/s?k={planet.englishName}&amp;crid=1TQ5R2QZSRNMQ'>
+          <li><span>Gravity</span> {planet.gravity} M/s<sup>2</sup></li>
+          <li><span>{planet.englishName}</span> is a <span>{planet.isPlanet ? "Proper Planet" : "Wannabe Rock"}</span></li>
+          <li><span>Your Weight</span> on {planet.englishName} would be <span>{userWeight} kg</span> </li>
+          <li>The average <span>surface temperature</span> in Kelvin is <span>{planet.avgTemp} &deg;K</span></li>
+          <li>The average <span>surface temperature</span> in Celsius is <span>{planet.avgTemp - 273} &deg;C</span></li>
+          <li>
+            <a href='https://www.amazon.co.uk/s?k={planet.englishName}'>
             Buy {planet.englishName} Books Now on Amazon
-          </a></li>
+          </a>
+          </li>
         </ul>
 
         <h3>
