@@ -6,7 +6,7 @@ const PlanetDetailBox = styled.div`
   background-color: rgba(0,0,0, .6);
   padding: 2rem;
   grid-area: detail;
-  border: 1px solid #fff;
+  border: 1px solid rgba(255, 217, 127, 0.151);
 
 
   & ul {
@@ -54,6 +54,7 @@ const PlanetDetailBox = styled.div`
   }
 
   & p.tagLine{
+    color: rgba(252, 239, 164, 1);
     font-size: 2.4rem;
     margin-bottom: 2rem;
     line-height: 1.6;
@@ -68,13 +69,13 @@ const PlanetDetailBox = styled.div`
   }
 
   & a:hover {
-    color: #ffd900e4;
+    color: rgba(255, 217, 0, 0.894);
   }
 `;
 
 const ImageBox = styled.div`
   grid-area: images;
-  border: 1px solid rgba(255,255,255, 0.6);
+  border: 1px solid rgba(255, 217, 127, 0.151);
 
   & img{
     max-width: 100%;
@@ -83,8 +84,8 @@ const ImageBox = styled.div`
   & p {
     
     margin: 2rem;
-    font-size: 2.4rem;
-    line-height: 1.4;
+    font-size: 2.2rem;
+    line-height: 1.6;
   }
 `;
 
