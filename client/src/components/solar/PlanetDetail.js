@@ -38,8 +38,8 @@ function PlanetDetail({ planet }) {
         
         {/* <p>{planet.imageOne.data[0].description}</p> */}
         
-        <p>{planet.imageTwo.data[0].description}</p>
         <ul className='planet-detail__stats'>
+          <h1 className='detail-planet-name'>{planet.englishName}</h1>
           <li><span>Gravity:</span> {planet.gravity}</li>
           <li><span>{planet.englishName} is a </span>{planet.isPlanet ? "Proper Planet" : "Wannabe Rock"}</li>
           <li><span>Your Weight on {planet.englishName}</span>
@@ -50,6 +50,7 @@ function PlanetDetail({ planet }) {
           <li><button>Buy {planet.englishName} Now on Amazon</button></li>
         </ul>
         <ul className='moon-detail'>{moonList}</ul>
+        <p>{planet.imageTwo.data[0].description}</p>
       </PlanetDetailBox>
 
       <ImageBox>
