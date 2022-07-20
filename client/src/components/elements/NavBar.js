@@ -8,16 +8,29 @@ const NavList = styled.ul`
   gap: 2rem;
   
   &  li {
-    display: inline-block;
     color: white;
-
+    
   }
-
+  
   &  a,
   &  a:visited {
-    width: 100%;
+    display: inline-block;
+    padding: 0.4rem 2rem;
+    width: 10rem;
+    font-size: 2.0rem;
+    font-weight: 700;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .4);
     color: white;
+    text-decoration: none;
+
   }
+
+  & a:hover{
+    color: #0f0;
+  }
+
+
 
 `;
 
