@@ -12,13 +12,20 @@ html {
   body{
     position: relative;
     color: rgb(196, 213, 238);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     min-height: 98vh;
     width: 100%;
     font-family: 'Exo 2', sans-serif;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
   }
+
+  h1, 
+  h2, 
+  h3 {
+    margin-bottom: 2rem;
+  }
+
 
   .main-grid {
     min-height: 80vh;
@@ -40,6 +47,7 @@ html {
 
   main.planet-grid {
     grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 40% 1fr;
     grid-template-areas: 
       'menu menu'
       'images detail'

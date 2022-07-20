@@ -11,13 +11,74 @@ const PlanetDetailBox = styled.div`
 
   & ul {
     list-style-type: none;
+    margin: 0 0 4rem 6rem;
+    font-size: 2rem;
+  }
+
+  & ul.planet-detail{
+
+    & li{
+      padding: 0.6rem 0;
+      & span {
+        color: #fc0;
+      }
+    }
+
+  }
+
+  & ul.moons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-left: -3rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & ul.moons > li{
+    width: 100px;
+    height: 100px;
+    background-color: aliceblue;
+    background-image: url('/images/moon-300.webp');
+    background-position: center;
+    background-size: cover;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 
+      -2px -2px 2px rgba(0, 0, 0, 0.8),
+      0px 0px 4px rgba(255,255,255, .8)
+      ;
+  }
+
+  & p.tagLine{
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  & h3 {
+    text-align:center;
   }
 
 `;
 
 const ImageBox = styled.div`
   grid-area: images;
-  border: 1px solid #fff;
+  border: 1px solid rgba(255,255,255, 0.6);
+
+  & img{
+    max-width: 100%;
+  }
+
+  & p {
+    
+    margin: 2rem;
+    font-size: 2.4rem;
+    line-height: 1.4;
+  }
 `;
 
 function PlanetDetail({ planet, user }) {
@@ -84,11 +145,10 @@ function PlanetDetail({ planet, user }) {
     <>
       <PlanetDetailBox>
         <h1 className='detail-planet-name'>{planet.englishName}</h1>
-        <p>{descriptions[planet.englishName].description}</p>
-        <h3>Gravity:</h3>
-
-        <ul className='planet-detail__stats'>
-          <li><span></span> {planet.gravity}</li>
+        <p className='tagLine'>{descriptions[planet.englishName].description}</p>
+        
+        <ul className='planet-detail'>
+          <li><span>Gravity</span> {planet.gravity}</li>
           <li><span>{planet.englishName} is a </span>{planet.isPlanet ? "Proper Planet" : "Wannabe Rock"}</li>
           <li><span>Your Weight on {planet.englishName} would be {userWeight} kg</span> </li>
           <li>The average surface temperature in Kelvin is {planet.avgTemp} Kelvin</li>
@@ -98,8 +158,13 @@ function PlanetDetail({ planet, user }) {
           </a></li>
         </ul>
 
-        <h3>There are {planet.moons.length} Moons orbiting {planet.englishName}, inlcuding:-</h3>
-        <ul className='moon-detail'>{moonList}</ul>
+        <h3>
+
+          {planet.moons.length !== 0 ? 
+          `There are ${planet.moons.length} Moons orbiting ${planet.englishName}, inlcuding:-` :
+           `${planet.englishName} Has No Moons.`}
+        </h3>
+        <ul className='moons'>{moonList}</ul>
       </PlanetDetailBox>
 
       <ImageBox>
