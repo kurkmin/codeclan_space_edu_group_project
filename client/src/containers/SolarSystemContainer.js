@@ -5,7 +5,7 @@ import PlanetSelector from '../components/solar/PlanetSelector';
 
 
 
-function SolarSystemContainer({ planets, planet, getSelectedPlanet }) {
+function SolarSystemContainer({ planets, planet, getSelectedPlanet, wikiPlanetData }) {
 
   // const [planet, setPlanet] = useState({});
 
@@ -14,10 +14,11 @@ function SolarSystemContainer({ planets, planet, getSelectedPlanet }) {
   // setPlanet(selectedPlanet);
   // }
 
+
   return (
     <main className='main-grid planet-grid'>
       <PlanetSelector planets={planets} getSelectedPlanet={getSelectedPlanet}/>
-      <PlanetDetail planet={planet} />
+      <PlanetDetail planet={planet} wikiData={wikiPlanetData} />
       <FunFacts />
     </main>
   )  

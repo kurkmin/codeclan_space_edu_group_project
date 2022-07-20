@@ -47,7 +47,6 @@ const MainContainer = () => {
         setPlanetObjects(newPlanets);
     }
 
-
     useEffect(() => {
         getFrenchPlanets()
     }, [])
