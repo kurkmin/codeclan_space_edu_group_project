@@ -214,7 +214,7 @@ body {
   bottom: 0;
   right: 0; 
   transform-origin: 50% 50%;
-  transform: scale(2) translateX(0rem);
+  transform: scale(2.8) translateX(18rem) rotate(-60deg);
   animation-name: astro2;
   animation-duration: 8s;
   animation-iteration-count: 1;
