@@ -14,7 +14,7 @@ const HeaderBox = styled.header`
   justify-content: right;
   align-items: center;
   background-color: rgba(0,0,0, 0.5);
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid rgba(255,255,255, 1);
   `;
 
 const UserBox = styled.div`
@@ -23,7 +23,7 @@ const UserBox = styled.div`
   padding-right: 3rem;
 
   & select{
-    width: 100%;
+    width: max-content;
     margin-bottom: 1rem;;
     font-size: 2.2rem;
     background-color: rgba(255,255,255, .2);
@@ -38,7 +38,7 @@ const BrandBox = styled.div`
 
 const NavBox = styled.div`
   flex-grow: 2;
-  width: 100%;
+  width: 80%;
   align-self: center;
   padding: 0 3rem;
   margin-right: 2rem;
