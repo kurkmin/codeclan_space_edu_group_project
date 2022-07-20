@@ -8,11 +8,13 @@ import UserDetail from './UserDetails';
 const HeaderBox = styled.header`
   width: 100%;
   min-height: 8vw;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
   display: flex;
   justify-content: right;
   align-items: center;
   background-color: rgba(0,0,0, 0.5);
+  border-bottom: 1px solid red;
   `;
 
 const UserBox = styled.div`
@@ -30,12 +32,16 @@ const UserBox = styled.div`
   `;
 
 const BrandBox = styled.div`
-  padding: 0 3rem;
+  padding-left: 3rem;
+  letter-spacing: 0.4rem;
   `;
 
 const NavBox = styled.div`
   flex-grow: 2;
+  width: 100%;
+  align-self: center;
   padding: 0 3rem;
+  margin-right: 2rem;
 `;
 
 
