@@ -18,7 +18,15 @@ const HeaderBox = styled.header`
 const UserBox = styled.div`
   height: 100%;
   padding: 0 0rem;
-  padding-right: 3rem
+  padding-right: 3rem;
+
+  & select{
+    width: 100%;
+    margin-bottom: 1rem;;
+    font-size: 2.2rem;
+    background-color: rgba(255,255,255, .2);
+    color: currentColor;
+  }
   `;
 
 const BrandBox = styled.div`

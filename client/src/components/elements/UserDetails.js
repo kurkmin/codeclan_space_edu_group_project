@@ -1,5 +1,10 @@
 import React from 'react';
 
+import styled from 'styled-components';
+
+const UserDetailBox = styled.div`
+  background-color: aliceblue;
+`;
 
 const UserDetail = ({ users, currentUser }) => {
 
