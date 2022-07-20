@@ -32,18 +32,21 @@ const MainContainer = () => {
     const nasaImages = 'https://images-api.nasa.gov/search?description='
 
     const getFrenchPlanets = async () => {
-        const promises = planets.map(planet => fetch(frenchAPI + planet.name)
-            .then(res => res.json()));
-
-        const newPlanets = await Promise.all(promises);
-
-        const planetsWithImages = newPlanets.map(planet => fetch(nasaImages + planet.englishName)
+        
+        const promises = planets.map(planet => {
+            return fetch(frenchAPI + planet.name)
             .then(res => res.json())
-            .then(data => {
-                planet.imageOne = data.collection.items[7];
-                planet.imageTwo = data.collection.items[8];
-            })
-            );
+            .then(updatedPlanet => {
+                fetch(nasaImages + updatedPlanet.englishName)
+                .then(res => res.json())
+                .then(data => {
+                    updatedPlanet.imageOne = data.collection.items[7];
+                    updatedPlanet.imageTwo = data.collection.items[8];
+                })
+                return updatedPlanet;
+            })       
+        })
+        const newPlanets = await Promise.all(promises);
         setPlanetObjects(newPlanets);
     }
 
