@@ -9,15 +9,14 @@ function QuizContainer({ planets, planet, getSelectedPlanet, formData }) {
   const [constructedQuizzes, setConstructedQuizzes] = useState([]);
   const [answerBoolean, setAnswerBoolean] = useState(null);
   const [correctAnswers, setCorrectAnswers] = useState([]);
-  const [planetMoons, setPlanetMoons] = useState("");
+  const [planetMoons, setPlanetMoons] = useState(null);
   
-  const answerPaths = [planet.gravity, planet.name, planetMoons, planet.meanRadius, planet.density]
   
 
   const handleSubmit = (formData) => {
     let index = formData.questionId
    
-    if (answerPaths[index] == formData.inputAnswer) {
+    if (correctAnswers[index] == formData.inputAnswer) {
       setAnswerBoolean(true)
     }
 
@@ -27,13 +26,16 @@ function QuizContainer({ planets, planet, getSelectedPlanet, formData }) {
   }
 
   const checkMoons = (planet) => {
-    if (planet.moons !== null) {
-      setPlanetMoons("yes")
+    if (planet.moons) {
+      const numberOfMoons = planet.moons.length
+      console.log("Moons array" + planet.moons)
+      setPlanetMoons(numberOfMoons)
+      console.log("Planet Moons" + planetMoons)
     }
-  else {
-    setPlanetMoons("no")
 
-  }
+    else {
+      setPlanetMoons(0)
+    }
   }
 
   const planetName = planet.englishName
@@ -60,8 +62,9 @@ function QuizContainer({ planets, planet, getSelectedPlanet, formData }) {
   }, [planet]);
 
   useEffect(() => {
+    const answerPaths = [planet.gravity, planet.name, planetMoons, planet.meanRadius, planet.density]
     setCorrectAnswers(answerPaths)
-  }, [planet])
+  }, [planet, planetMoons])
 
   useEffect(() => {
     checkMoons(planet)
