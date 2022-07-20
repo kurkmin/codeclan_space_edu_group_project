@@ -19,7 +19,7 @@ function Homepage() {
           <h1>SpaceClan Discover</h1>
           <h2>Hello, Earthling !</h2>
           <p className="button">
-            <a href="/explore"><button className="button__button button-slide">Make it So, Number One &gt;</button></a>
+            <a href="/explore"><button className="button__button button-slide">Discover the Solar System &gt;</button></a>
             <a href='/'><button className="button__button button-slide">Replay</button></a>
           </p>
         </div>
