@@ -6,18 +6,87 @@ const PlanetDetailBox = styled.div`
   background-color: rgba(0,0,0, .6);
   padding: 2rem;
   grid-area: detail;
-  border: 1px solid #fff;
+  border: 1px solid rgba(255, 217, 127, 0.151);
 
 
   & ul {
     list-style-type: none;
+    margin: 0 0 4rem 6rem;
+    font-size: 2rem;
   }
 
+  & ul.planet-detail{
+
+    & li{
+      padding: 0.6rem 0;
+      & span {
+        color: #fc0;
+      }
+    }
+
+  }
+
+  & ul.moons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-left: -3rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & ul.moons > li{
+    width: 100px;
+    height: 100px;
+    background-color: aliceblue;
+    background-image: url('/images/moon-300.webp');
+    background-position: center;
+    background-size: cover;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 
+      -2px -2px 2px rgba(0, 0, 0, 0.8),
+      0px 0px 4px rgba(255,255,255, .8)
+      ;
+  }
+
+  & p.tagLine{
+    color: rgba(252, 239, 164, 1);
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  & h3 {
+    text-align:center;
+  }
+
+  & a {
+    color: rgba(255,255,255, .8);
+  }
+
+  & a:hover {
+    color: rgba(255, 217, 0, 0.894);
+  }
 `;
 
 const ImageBox = styled.div`
   grid-area: images;
-  border: 1px solid #fff;
+  border: 1px solid rgba(255, 217, 127, 0.151);
+
+  & img{
+    max-width: 100%;
+  }
+
+  & p {
+    
+    margin: 2rem;
+    font-size: 2.2rem;
+    line-height: 1.6;
+  }
 `;
 
 function PlanetDetail({ planet, user }) {
@@ -27,7 +96,11 @@ function PlanetDetail({ planet, user }) {
   const userMass = user ? user.mass : 100;
   const userWeight = ((userMass / 9.81) * planet.gravity).toFixed(0);
 
-  if (!planet.englishName) return "Please Select a Planet.";
+  if (!planet.englishName) {
+    return (
+      <h2>Please select a planet above</h2>
+    );
+  }
   // console.log(planet.moons)
 
 
@@ -84,22 +157,28 @@ function PlanetDetail({ planet, user }) {
     <>
       <PlanetDetailBox>
         <h1 className='detail-planet-name'>{planet.englishName}</h1>
-        <p>{descriptions[planet.englishName].description}</p>
-        <h3>Gravity:</h3>
-
-        <ul className='planet-detail__stats'>
-          <li><span></span> {planet.gravity}</li>
-          <li><span>{planet.englishName} is a </span>{planet.isPlanet ? "Proper Planet" : "Wannabe Rock"}</li>
-          <li><span>Your Weight on {planet.englishName} would be {userWeight} kg</span> </li>
-          <li>The average surface temperature in Kelvin is {planet.avgTemp} Kelvin</li>
-          <li>The average surface temperature in Celsius is {planet.avgTemp - 273} &deg;C</li>
-          <li><a href='https://www.amazon.co.uk/s?k={planet.englishName}&amp;crid=1TQ5R2QZSRNMQ'>
+        <p className='tagLine'>{descriptions[planet.englishName].description}</p>
+        
+        <ul className='planet-detail'>
+          <li><span>Gravity</span> {planet.gravity} M/s<sup>2</sup></li>
+          <li><span>{planet.englishName}</span> is a <span>{planet.isPlanet ? "Proper Planet" : "Wannabe Rock"}</span></li>
+          <li><span>Your Weight</span> on {planet.englishName} would be <span>{userWeight} kg</span> </li>
+          <li>The average <span>surface temperature</span> in Kelvin is <span>{planet.avgTemp} &deg;K</span></li>
+          <li>The average <span>surface temperature</span> in Celsius is <span>{planet.avgTemp - 273} &deg;C</span></li>
+          <li>
+            <a href='https://www.amazon.co.uk/s?k={planet.englishName}'>
             Buy {planet.englishName} Books Now on Amazon
-          </a></li>
+          </a>
+          </li>
         </ul>
 
-        <h3>There are {planet.moons.length} Moons orbiting {planet.englishName}, inlcuding:-</h3>
-        <ul className='moon-detail'>{moonList}</ul>
+        <h3>
+
+          {planet.moons.length !== 0 ? 
+          `There are ${planet.moons.length} Moons orbiting ${planet.englishName}, inlcuding:-` :
+           `${planet.englishName} Has No Moons.`}
+        </h3>
+        <ul className='moons'>{moonList}</ul>
       </PlanetDetailBox>
 
       <ImageBox>
