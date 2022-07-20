@@ -10,7 +10,7 @@ const ImageBox = styled.div`
   grid-area: images;
 `;
 
-function PlanetDetail({ planet }) {
+function PlanetDetail({ planet, wikiData }) {
 
   // TEMP: Bring in user mass from users blobject.
   // If used this could be moved to a helpers file.  Keep Britain Tidy!
@@ -18,7 +18,7 @@ function PlanetDetail({ planet }) {
   const userWeight = ((userMass / 9.81) * planet.gravity).toFixed(0);
 
   if (!planet.englishName) return "Please Select a Planet.";
-  console.log(planet.moons)
+  // console.log(planet.moons)
 
 
   

@@ -5,7 +5,7 @@ const QuestionBox = styled.div`
   grid-area: questions;
 `;
 
-function Questions({ quizzes, handleSubmit, answerBoolean , correctAnswers, planet}) {
+function Questions({ quizzes, handleSubmit, answerBoolean , correctAnswers }) {
 
   const [selectedAnswer, setSelectedAnswer] = useState()
   const [formData, setFormData] = useState({});
