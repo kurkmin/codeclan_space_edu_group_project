@@ -24,6 +24,7 @@ html {
   h2, 
   h3 {
     margin-bottom: 2rem;
+    color: rgb(176, 189, 209);
   }
 
 
@@ -80,11 +81,25 @@ html {
   }
 
   .quiz-questions li {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     margin-left: 4rem;
+    color: rgba(255, 181, 101, 1);
   }
   .quiz-questions li {
     margin-bottom: 2rem;
+  }
+
+  .quiz-questions select,
+  .quiz-questions input{
+    cursor: pointer;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    padding: 0.6rem 1rem;
+    font-size: 2.4rem;
+    color: rgba(205, 106, 0, 1);
+    background-color: rgba(33, 46, 65, 0.2);
+    border: none;
+    border: 1px solid rgba(255, 196, 0, 0.656)
   }
   
   .quiz-feedback {
@@ -120,6 +135,9 @@ html {
   .quiz-question-text{
     font-size: 2.4rem;
   }
+
+
+
 `;
 
 export default GlobalStyle;
