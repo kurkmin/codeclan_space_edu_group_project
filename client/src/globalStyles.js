@@ -91,6 +91,30 @@ html {
     height: 100%;
     grid-area: feedback;
     align-self: start;
+    justify-self: center;
+  }
+  
+  .quiz-feedback p{
+    font-size: 2.4rem;
+  }
+  
+  .quiz-feedback p.correct{
+    min-height: 80%;
+    font-size: 2.4rem;
+    color: rgba(130, 255, 130, 1);
+    background-image: url('/images/icons/green-tick.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center 100%;
+  }
+  .quiz-feedback p.incorrect{
+    min-height: 80%;
+    font-size: 2.4rem;
+    color: rgba(255,200,200, 1);
+    /* background-color: #000; */
+    background-image: url('/images/icons/red-cross.png');
+    background-repeat: no-repeat;
+    background-position: center 100%;
   }
 
   .quiz-question-text{
