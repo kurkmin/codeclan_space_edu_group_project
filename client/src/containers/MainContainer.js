@@ -40,8 +40,8 @@ const MainContainer = () => {
                 fetch(nasaImages + updatedPlanet.englishName)
                 .then(res => res.json())
                 .then(data => {
-                    updatedPlanet.imageOne = data.collection.items[7];
-                    updatedPlanet.imageTwo = data.collection.items[8];
+                    updatedPlanet.imageOne = data.collection.items[8];
+                    // updatedPlanet.description = data.collection.items;
                 })
                 return updatedPlanet;
             })       
@@ -62,6 +62,7 @@ const MainContainer = () => {
     // users api imported from local database 
 
     const [users, setUsers] = useState([])
+    const [user, setUser] = useState(users[0])
 
     const getUsers = () => {
         fetch("http://localhost:9000/api/users")
@@ -86,7 +87,7 @@ const MainContainer = () => {
                     />
                     <Route
                         path="/explore"
-                        element={<SolarSystemContainer planets={planetObjects} planet={planet} getSelectedPlanet={getSelectedPlanet} />}
+                        element={<SolarSystemContainer planets={planetObjects} planet={planet} getSelectedPlanet={getSelectedPlanet} user={user}/>}
                     />
                     <Route
                         path="/quizzes"

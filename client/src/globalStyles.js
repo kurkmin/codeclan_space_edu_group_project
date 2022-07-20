@@ -44,7 +44,7 @@ html {
       'menu menu'
       'images detail'
       'facts facts';
-    gap: 2rem;
+    gap: 4rem;
   }
 
   main.quiz-grid {
