@@ -6,7 +6,6 @@ function Homepage() {
 
   return (
     <>
-
       <div className="solar-system-splash">
           
         <div className="solar-system solar-animation">
