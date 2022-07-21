@@ -1,13 +1,17 @@
 import './App.css';
 import MainContainer from './containers/MainContainer';
+import GlobalStyle from './globalStyles';
 
 function App() {
 
 
 
   return (
-    // landing page
-    <MainContainer />
+    
+    <>
+      <GlobalStyle />
+      <MainContainer />
+    </>
   );
 }
 

@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
-import SolarSystemContainer from "./SolarSystemContainer";
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import styled from "styled-components";
 
+import Footer from "../components/elements/Footer";
+import Header from "../components/elements/Header";
+import Homepage from "./Homepage";
+import SolarSystemContainer from "./SolarSystemContainer";
+import StatisticsContainer from "./StatisticsContainer";
+import QuizContainer from "./QuizContainer";
 
 const MainContainer = () => {
 
@@ -15,47 +22,90 @@ const MainContainer = () => {
         { name: 'neptune' }
     ])
 
-    // const [test, setTest] = useState([]);
+
 
     const [planetObjects, setPlanetObjects] = useState([]);
+    const [planet, setPlanet] = useState([]);
+
 
     const frenchAPI = 'https://api.le-systeme-solaire.net/rest/bodies/'
-
+    const nasaImages = 'https://images-api.nasa.gov/search?description='
 
     const getFrenchPlanets = async () => {
-        const promises = planets.map(planet => fetch(frenchAPI + planet.name).then(res => res.json()));
+        
+        const promises = planets.map(planet => {
+            return fetch(frenchAPI + planet.name)
+            .then(res => res.json())
+            .then(updatedPlanet => {
+                fetch(nasaImages + updatedPlanet.englishName)
+                .then(res => res.json())
+                .then(data => {
+                    updatedPlanet.imageOne = data.collection.items[8];
+                    // updatedPlanet.description = data.collection.items;
+                })
+                return updatedPlanet;
+            })       
+        })
         const newPlanets = await Promise.all(promises);
         setPlanetObjects(newPlanets);
     }
-
-    // const getPlanets = () => {
-    //     return fetch(frenchAPI)
-    //         .then(res => res.json())
-    //         .then((data) => setTest(data))
-    // }
-    // const getFrenchPlanets = function () {
-    //     const copyPlanets = [planetObjects]
-    //     const frenchPlanets = planets.map((planet) => {
-    //         const res = await fetch(frenchAPI + planet.name);
-    //         const data = await res.json();
-    //         copyPlanets.push(data);
-    //         setPlanetObjects(copyPlanets);
-    //         console.log(planetObjects);
-    //     })
-
-    // }
 
     useEffect(() => {
         getFrenchPlanets()
     }, [])
 
+    const getSelectedPlanet = (id) => {
+        const selectedPlanet = planetObjects[id];
+        setPlanet(selectedPlanet);
+    }
+
+    // users api imported from local database 
+
+    const [users, setUsers] = useState([])
+    const [user, setUser] = useState(users[0])
+
+    const getUsers = () => {
+        fetch("http://localhost:9000/api/users")
+            .then(res => res.json())
+            .then(data => setUsers(data))
+    }
+
+    useEffect(() => {
+        getUsers()
+    }, [])
 
     return (
-        <>
-            <h1>Main Container</h1>
-            <SolarSystemContainer planets={planetObjects} />
-        </>
+        <div className="wrapper">
+            <Router>
+                {
+                    window.location.pathname !== '/' ? <Header users={users} /> : null
+                }
+                <Routes>
+                    <Route
+                        path="/"
+                        element={<Homepage />}
+                    />
+                    <Route
+                        path="/explore"
+                        element={<SolarSystemContainer planets={planetObjects} planet={planet} getSelectedPlanet={getSelectedPlanet} user={user}/>}
+                    />
+                    <Route
+                        path="/quizzes"
+                        element={<QuizContainer planets={planetObjects} planet={planet} getSelectedPlanet={getSelectedPlanet} />}
+                    />
+                    <Route
+                        path="/statistics"
+                        element={<StatisticsContainer planets={planetObjects} users={users}/>}
+                    />
+                    {/* 404 route */}
+                </Routes>
+                {
+                    window.location.pathname!=='/' ? <Footer users={users} /> : null
+                }
+            </Router>
+        </div>
     )
 }
+
 
 export default MainContainer;
